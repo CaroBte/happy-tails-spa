@@ -1,3 +1,4 @@
+import "./styles/styles.sass"
 
 function App() {
   return (
