@@ -44,7 +44,7 @@ const Login = () => {
                 <div className='col-md-3'></div>
                 <div className="d-flex flex-column col-md-7">
                     <h5 className='text-center mb-5 register'>Regístrate para tener una mejor experiencia en nuestra Web</h5>
-                    <button className="btn btn-login mx-4 mb-2 mx-md-auto ">Log In</button>
+                    <button className="btn btn-login mx-2 mb-2 mx-md-auto ">Log In</button>
                 </div>
             </div>
 
