@@ -1,46 +1,42 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { Home, Buscar, Carrito, Perfil, SobreNosotros } from '../pages'
 
 const Navbar = () => {
     return (
         <>
             <div className="menu-burguer">
 
-                <nav className="navbar navbar-expand-lg cont_nav">
-
-                    <div className="container-fluid fixed-left">
+                <nav className="navbar navbar-expand-lg d-flex">
+                    <div className="container d-flex flex-column">
                         <h1 className='navbar-brand h1_title'>Happy Tails Spa</h1> {/* Link que lleve al Home */}
 
                         <button
-                        className="navbar-toggler"
-                        type="button"
-                        data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasNavbar"
-                        aria-controls="offcanvasNavbar"
+                            className="navbar-toggler"
+                            type="button"
+                            data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasNavbar"
+                            aria-controls="offcanvasNavbar"
                         >
                             <i className="fa-solid fa-bars burger_icon"></i>
                         </button>
 
                         <div
-                        className="offcanvas offcanvas-end"
-                        tabIndex="-1"
-                        id="offcanvasNavbar"
-                        aria-labelledby="offcanvasNavbarLabel"
+                            className="offcanvas offcanvas-start"
+                            tabIndex="-1"
+                            id="offcanvasNavbar"
+                            aria-labelledby="offcanvasNavbarLabel"
                         >
 
-                            <div className="offcanvas-body menu_body">
-                                <div className="offcanvas-header d-flex align-items-end">
+                            <div className="offcanvas-body menu_body d-flex md-flex-column">
+                                <div className="offcanvas-header d-flex align-items-start">
                                     <button
-                                    type="button"
-                                    data-bs-dismiss="offcanvas"
-                                    aria-label="Close"
-                                    >
+                                        type="button"
+                                        data-bs-dismiss="offcanvas"
+                                        aria-label="Close">
                                         <i className="fa-solid fa-circle-xmark h3 x_icon"></i>
                                     </button>
                                 </div>
 
-                                <ul className="navbar-nav ul_ppal">
+                                <ul className="navbar-nav ul_ppal d-flex flex-column">
 
                                     <li className="nav-item mx-3">
                                         <a>
@@ -76,10 +72,6 @@ const Navbar = () => {
                                             Perfil
                                         </a>
                                     </li>
-
-                                </ul>
-
-                                <ul className="navbar-nav ul_sec">
                                     <li className="nav-item mx-3">
                                         <a>
                                             <i className="fa-solid fa-circle-half-stroke h3"></i>
@@ -93,8 +85,8 @@ const Navbar = () => {
                                             Contáctanos
                                         </a>
                                     </li>
-                                </ul>
 
+                                </ul>
                             </div>
                         </div>
                     </div>
