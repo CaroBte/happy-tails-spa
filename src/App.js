@@ -1,13 +1,18 @@
-import { Navbar } from './layout'
-import { Perfil } from './pages';
+import { useEffect } from 'react';
+import { RouterProvider } from 'react-router-dom';
+import { router } from "./Router";
 import "./styles/styles.sass"
 
 function App() {
+
+  useEffect(() => {
+    document.title = "Happy Tails Spa"
+  }, []);
+
   return (
-    <div className="App">
-      <Navbar />
-      <Perfil />
-    </div>
+    <>
+      <RouterProvider router={router} />
+    </>
   );
 }
 
