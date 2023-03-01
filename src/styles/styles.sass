@@ -1,4 +1,70 @@
 @import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap')
+$purple: #924AC6
+$fucsia: #B60478
+
 
 body
     font-family: Capriola
+
+/* ---------------- NavBar -------------------- */
+
+.cont_nav
+    background-color: $purple
+    h1
+        color: white
+        text-transform: uppercase
+        font-size: 28px
+        margin-bottom: 0
+    button
+        border: none
+        padding: 0
+        &:active
+            border: none
+        .burger_icon
+            width: 50px
+            color: white
+            font-size: 35px
+
+.menu_body
+    position: relative
+
+.x_icon
+    position: absolute
+    right: 8%
+    top: 4%
+    color: $purple
+
+.ul_ppal
+    margin-top: 5%
+    font-size: 22px
+    li
+        margin-bottom: 5%
+        i
+            color: $fucsia
+            margin-right: 4%
+
+.ul_sec
+    position: absolute
+    bottom: 10%
+    width: 80%
+    li
+        margin-bottom: 5%
+        font-size: 20px
+        i
+            color: $fucsia
+            margin-right: 4%
+
+
+@media screen and (min-width: 768px)
+    .cont_nav
+        background-color: white
+        h1
+            color: $purple
+            text-transform: uppercase
+            font-size: 35px
+            margin-bottom: 0
+            border: blue 2px solid
+
+    .menu_body
+        display: flex
+        flex-direction: column
