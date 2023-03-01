@@ -4,7 +4,6 @@ import { Login } from '../components'
 const Perfil = () => {
     return (
         <>
-            <div>Perfil</div>
             <Login/>
         </>
     )
