@@ -1,13 +1,14 @@
 import React from 'react'
 import { Outlet } from 'react-router'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     return (
         <>
             <div className="menu-burguer">
 
-                <nav className="navbar navbar-expand-lg d-flex">
-                    <div className="container d-flex flex-column">
+                <nav className="navbar navbar-expand-lg d-flex cont_nav">
+                    <div className="container-fluid d-flex ">
                         <h1 className='navbar-brand h1_title'>Happy Tails Spa</h1> {/* Link que lleve al Home */}
 
                         <button
@@ -37,57 +38,48 @@ const Navbar = () => {
                                     </button>
                                 </div>
 
-                                <ul className="navbar-nav ul_ppal d-flex flex-column">
+                                <div className="navbar-nav div_ppal d-flex flex-column">
 
-                                    <li className="nav-item mx-3">
-                                        <a>
+                                    <div className="list_one d-flex flex-column">
+
+                                        <Link to={"/buscar"} className="nav-item mx-3">
                                             <i className="fa-solid fa-magnifying-glass h3"></i>
                                             Buscar
-                                        </a>
-                                    </li>
+                                        </Link>
 
-                                    <li className="nav-item mx-3">
-                                        <a>
+                                        <Link to={"/"} className="nav-item mx-3">
                                             <i className="fa-solid fa-house-chimney-user h3"></i>
                                             Home
-                                        </a>
-                                    </li>
+                                        </Link>
 
-                                    <li className="nav-item mx-3">
-                                        <a>
+                                        <Link to={"/carrito"} className="nav-item mx-3">
                                             <i className="fa-solid fa-cart-shopping h3"></i>
                                             Carrito
-                                        </a>
-                                    </li>
+                                        </Link>
 
-                                    <li className="nav-item mx-3">
-                                        <a>
+                                        <Link to={"/nosotros"} className="nav-item mx-3">
                                             <i className="fa-solid fa-paw h3"></i>
                                             Nosotros
-                                        </a>
-                                    </li>
+                                        </Link>
 
-                                    <li className="nav-item mx-3">
-                                        <a>
+                                        <Link to={"/perfil"} className="nav-item mx-3">
                                             <i className="fa-solid fa-user h3"></i>
                                             Perfil
-                                        </a>
-                                    </li>
-                                    <li className="nav-item mx-3">
-                                        <a>
+                                        </Link>
+                                    </div>
+
+                                    <div className="list_two d-flex flex-column">
+                                        <Link className="nav-item mx-3">
                                             <i className="fa-solid fa-circle-half-stroke h3"></i>
                                             Tema
-                                        </a>
-                                    </li>
+                                        </Link>
 
-                                    <li className="nav-item mx-3">
-                                        <a>
+                                        <Link className="nav-item mx-3">
                                             <i className="fa-solid fa-mobile-screen h3"></i>
                                             Contáctanos
-                                        </a>
-                                    </li>
-
-                                </ul>
+                                        </Link>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
