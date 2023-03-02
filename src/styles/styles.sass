@@ -7,6 +7,8 @@ body
     font-family: Capriola
 
 /* ---------------- NavBar -------------------- */
+.menu-web
+    display: none
 
 .cont_nav
     background-color: $purple
@@ -50,15 +52,24 @@ body
 
 
 @media screen and (min-width: 768px)
-    .cont_nav
-        background-color: white
-        h1
-            color: $purple
-            text-transform: uppercase
-            font-size: 35px
-            margin-bottom: 0
-            border: blue 2px solid
+    .menu-burguer
+        display: none
 
-    .menu_body
+    .menu-web
         display: flex
-        flex-direction: column
+        position: fixed
+        width: 25%
+        height: 100%
+        border: blue 2px solid
+
+    .name_logo
+        color: $purple
+        text-transform: uppercase
+        i
+            margin: 5% 0
+            font-size: 150px
+
+    .div_ppal
+        justify-content: space-between
+        a
+            margin-bottom: 1%
