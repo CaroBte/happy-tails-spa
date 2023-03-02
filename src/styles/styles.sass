@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap')
 $purple: #924AC6
 $fucsia: #B60478
-
+$blue-purple: #4E36B8
 
 body
     font-family: Capriola
 
-/* ---------------- NavBar -------------------- */
+/* -------------------------------- NavBar ---- */
 .menu-web
     display: none
 
@@ -45,22 +45,26 @@ body
         margin-bottom: 5%
         text-decoration: none
         color: inherit
+    .list_one
         i
             color: $fucsia
             margin-right: 4%
-
-
+    .list_two
+        i
+            color: $blue-purple
+            margin-right: 4%
 
 @media screen and (min-width: 768px)
+    /* -------------------------------- NavBar ---- */
     .menu-burguer
         display: none
 
     .menu-web
         display: flex
         position: fixed
-        width: 25%
-        height: 100%
-        border: blue 2px solid
+        width: 20%
+        height: 98%
+        margin-left: 1%
 
     .name_logo
         color: $purple
@@ -70,6 +74,10 @@ body
             font-size: 150px
 
     .div_ppal
-        justify-content: space-between
+        margin: 12% 3%
         a
-            margin-bottom: 1%
+            margin-bottom: 3%
+        .list_two
+            margin-top: 50%
+            i
+                color: $blue-purple
