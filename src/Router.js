@@ -9,6 +9,9 @@ export const router = createBrowserRouter(
             <Route path="/" element={<Navbar />} >
                 <Route path="/" element={<Home />} />
                 <Route path="/perfil" element={<Perfil />} />
+                <Route path="/buscar" element={<Buscar />} />
+                <Route path="/carrito" element={<Carrito />} />
+                <Route path="/nosotros" element={<SobreNosotros />} />
             </Route >
 
         </>
