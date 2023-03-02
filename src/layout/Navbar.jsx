@@ -6,7 +6,7 @@ const Navbar = () => {
     return (
         <>
             <div className='menu-web'>
-                <div className="d-flex flex-column fixed-left">
+                <div className="d-flex flex-column">
 
                     <div className="name_logo d-flex flex-column align-items-center">
                         <i className="fa-solid fa-paw h3"></i>
