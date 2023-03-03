@@ -2,6 +2,7 @@
 $purple: #924AC6
 $fucsia: #B60478
 $blue-purple: #4E36B8
+$footer-background: #F5E8FF
 
 body
     font-family: Capriola
@@ -60,7 +61,6 @@ body
     overflow-y: auto
     img
         object-fit: cover
-        /*  height: 250px */
         height: 200px
         margin: 0.3%
         border-radius: 3px
@@ -69,6 +69,47 @@ body
     border: green 2px solid
     width: 90%
     margin: auto
+
+/* -------------------------------- Footer ---- */
+.cont_footer
+    position: absolute
+    bottom: 0
+    flex-direction: column
+    background-color: $footer-background
+    .div_info 
+        flex-direction: column
+        .info
+            margin: 2% 0 3% 0
+            h5
+                margin: 0 
+                font-size: 16px
+            i
+                color: $fucsia
+                margin-right: 2.5%
+        
+        .pagos
+            img
+                width: 85%
+                margin: 1% 0 3% 0
+                border-radius: 3px
+        
+        .socialm
+            ul
+                padding: 0
+            &__list
+                list-style: none
+                font-size: 20px
+                color: $fucsia
+
+    .powered
+        background-color: $purple
+        color: white
+        padding: 3%
+        text-align: center
+        h5
+            font-size: 14px
+        a
+            color: inherit
 
 @media screen and (min-width: 768px)
 
@@ -102,5 +143,18 @@ body
     /* ---- Home ---- */
 
     .serv-card
-        border: green 2px solid
         width: 30%
+    
+    /* ------------- Footer ---- */
+    .cont_footer
+        .div_info
+            flex-direction: row
+            .info
+                width: 35%
+            .pagos
+                width: 30%
+        
+        .powered
+            padding: 1%
+            h5
+                font-size: 20px
