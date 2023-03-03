@@ -1,13 +1,21 @@
 import React, { useEffect } from 'react'
-/* import { traerServicios } from '../api/servicios' */
+import { traerServicios } from '../api/servicios'
 import { Servicios } from '../components/'
 import {Footer} from '../layout'
+import React, { useContext, useEffect, useState } from 'react'
+import { Servicios } from '../components/'
+import { serviciosContext } from '../context/servicios'
 
 const Home = () => {
 
+  const { traerServicios, servicios } = useContext(serviciosContext)
+
+  useEffect(() => {
+    traerServicios()
+  }, [])
+
   return (
     <>
-
       <div className="screen row gx-0">
         <div className='col-md-3'></div>
         <div className="col-md-9 info-home">
@@ -22,7 +30,7 @@ const Home = () => {
           </div>
           <h4 className='m-4 pb-3 border-bottom'><i className="fa-solid fa-bath user-icon"></i>  Nuestros Servicios</h4>
           <div className='container-cards d-flex flex-wrap justify-content-around'>
-            {/* <Servicios lista={"lista"} /> */}
+            <Servicios lista={servicios} />
           </div>
 
           <Footer />
