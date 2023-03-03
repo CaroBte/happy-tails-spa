@@ -17,7 +17,7 @@ const Usuario = () => {
                         <img className='m-auto rounded-circle image-profile ' src="https://res.cloudinary.com/dxre2n1ja/image/upload/v1677613038/Happy%20Tails%20Spa%20App/Account-Avatar-Profile-PNG-Photo_nqxxzd.png" width={"20%"} alt="User Logo" />
                     </div>
 
-                    <div className="form-login mx-4 mb-5 ">
+                    <form className="form-login mx-4 mb-5 ">
                         <label className='d-flex flex-column form-label title '>Nombre
                             <input className='border-0 border-bottom input-login' type="text" />
                             <i className="fa-solid fa-pencil opacity-25"></i>
@@ -27,7 +27,7 @@ const Usuario = () => {
                             <i className="fa-solid fa-pencil opacity-25"></i>
                         </label>
                         <label className='d-flex flex-column form-label title '>Contraseña
-                            <input className='border-0 border-bottom input-login' type="password" />
+                            <input className='border-0 border-bottom input-login' type="password" autoComplete="current-password"/>
                             <i className="fa-solid fa-pencil opacity-25"></i>
                         </label>
                         <label className='d-flex flex-column form-label title '>Teléfono
@@ -38,7 +38,7 @@ const Usuario = () => {
                             <input className='border-0 border-bottom input-login' type="text" />
                             <i className="fa-solid fa-pencil opacity-25"></i>
                         </label>
-                    </div>
+                    </form>
                     <div className="btns-profile-web">
                         <button className="btn btn-login mx-2 mb-2 mx-md-1 ">Guardar</button>
                         <button className="btn btn-logout mx-2 mb-2 mx-md-1 ">Log Out</button>

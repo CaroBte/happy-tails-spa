@@ -4,7 +4,7 @@ import React from 'react'
 const PetInput = () => {
     return (
         <>
-            <div className='text-center mt-2'>
+            <div className='text-center my-4'>
                 <button className="btn btn-edit" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                     Registrar Nueva Mascota
                 </button>
@@ -15,9 +15,9 @@ const PetInput = () => {
                         <input className='border-0 border-bottom input-login' type="text" />
                     </label>
                     <label className='d-flex flex-column form-label title '>Especie
-                        <select className='border-0 border-bottom input-login' type="text">
-                            <option selected>Perro</option>
-                            <option>Gato</option>
+                        <select className='border-0 border-bottom input-login'>
+                            <option value="Perro">Perro</option>
+                            <option value="Gato">Gato</option>
                         </select>
                     </label>
                     <label className='d-flex flex-column form-label title'>Imagen
