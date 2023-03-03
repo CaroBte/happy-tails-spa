@@ -1,6 +1,13 @@
 import React from 'react'
+import BusquedaVacia from './BusquedaVacia'
+
 
 const Servicios = ({ lista }) => {
+
+    if (lista && lista.length === 0) return (
+
+        <BusquedaVacia/>
+    )
 
     return (
         <> {lista && lista.map(s => {
