@@ -1,9 +1,6 @@
-import React, { useEffect } from 'react'
-import { traerServicios } from '../api/servicios'
-import { Servicios } from '../components/'
-import {Footer} from '../layout'
 import React, { useContext, useEffect, useState } from 'react'
-import { Servicios } from '../components/'
+import { Footer } from '../layout'
+import { Servicios } from '../components'
 import { serviciosContext } from '../context/servicios'
 
 const Home = () => {
@@ -32,8 +29,7 @@ const Home = () => {
           <div className='container-cards d-flex flex-wrap justify-content-around'>
             <Servicios lista={servicios} />
           </div>
-
-          <Footer />
+          
         </div>
       </div>
     </>
