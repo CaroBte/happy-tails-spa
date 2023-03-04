@@ -1,55 +1,62 @@
 import React from 'react'
+import "../styles/BuscarNosotros.sass"
 
 const SobreNosotros = () => {
     return (
         <>
             <div className="screen row gx-0 justify-content-end">
                 <div className="cont_nosotros col-md-9">
-                    <div className='d-flex align-items-baseline mx-4 mt-5'>
+                    <div className='d-flex align-items-baseline mx-4 mt-4'>
                         <i className="user-icon h3 fa-solid fa-paw"></i>
                         <h5 className='mx-2'>Sobre Nosotros</h5>
                     </div>
 
-                    <div className="textos">
-                        <h6>
-                            HAPPY TAILS SPA nace desde la necesidad de poder darle un cuidado especial
+                    <div className="textos mt-3 px-4">
+                        <h6 className='py-2'>
+                            <span className='fw-semibold h5'> HAPPY TAILS SPA </span> nace desde la necesidad de poder darle un cuidado especial
                             a nuestras mascotas sin que trasladarlas sea un inconveniente tanto para ellos
                             como para los mamás y papás gatunos y perrunos.
                         </h6>
 
-                        <h5>
-                            Nuestros Clientes
+                        <h5 className='border-bottom border-danger-subtle'>
+                            Cómo contactarnos
                         </h5>
-                        
-                        <h6>
-                            Foticos de mascotas felices
-                            <img src="" alt="pet-image" />
-                        </h6>
-
-                        <h5>
-                            Contáctanos
-                        </h5>
-
-                        <h6>
+                        <div>
                             <ul>
-                                <li>Estamos ubicados en</li>
-                                <li>No dudes en llamarnos o escribirnos por nuestro Whatsapp</li>
-                                <li>O también puedes escribirnos a nuestro correo</li>
+                                <li><i className="fa-solid fa-location-dot h6"></i> Estamos ubicados en el <span className='fw-semibold'>Valle de Aburrá, Antioquia, Colombia</span></li>
+                                <li><i className="fa-solid fa-mobile-screen h6"></i> No dudes en llamarnos o escribirnos por nuestro Whatsapp <span className='fw-semibold'>+57 300 000 0000</span></li>
+                                <li><i className="fa-solid fa-envelope h6"></i> O también puedes escribirnos a nuestro correo <span className='fw-semibold'>happytailsspa@gmail.com</span></li>
                             </ul>
-                        </h6>
+                        </div>
 
-                        <h5>
+                        <h5 className='border-bottom border-danger-subtle'>
+                            Nuestros Clientes Felices
+                        </h5>
+                        <div className='div_imgs d-flex flex-row flex-wrap justify-content-center'>
+                            <img src="https://res.cloudinary.com/dxre2n1ja/image/upload/v1677882626/Happy%20Tails%20Spa%20App/photo-1600272008408-6e05d5aa3e7a_u81i3z.jpg" alt="pet-image" />
+                            <img src="https://res.cloudinary.com/dxre2n1ja/image/upload/v1677882551/Happy%20Tails%20Spa%20App/perrocontento_dfqnk0.jpg" alt="pet-image" />
+                            <img src="https://res.cloudinary.com/dxre2n1ja/image/upload/v1677882550/Happy%20Tails%20Spa%20App/6ddbfe_2d8ca8e11c6c4d69a5d1cd36a80beab3_mv2_txba0u.jpg" alt="pet-image" />
+                            <img src="https://res.cloudinary.com/dxre2n1ja/image/upload/v1677882627/Happy%20Tails%20Spa%20App/Gato_beb_C3_A9_bo64ck.jpg" alt="pet-image" />
+                            <img src="https://res.cloudinary.com/dxre2n1ja/image/upload/v1677883698/Happy%20Tails%20Spa%20App/gato-durmiendo-tranquilamente-sobre-su-cama_543404-359_h9xbl5.jpg" alt="pet-image" />
+                            <img src="https://res.cloudinary.com/dxre2n1ja/image/upload/v1677883824/Happy%20Tails%20Spa%20App/como_puedo_mantener_a_mi_perro_siempre_limpio_15688_orig_wkpcls.jpg" alt="pet-image" />
+                        </div>
+
+                        <h5 className='border-bottom border-danger-subtle'>
                             Nuestros Valores
                         </h5>
-
-                        <h6>
+                        <div>
                             <ul>
-                                <li>Amor por las mascotas.</li>
-                                <li>Responsabilidad</li>
-                                <li>Respeto</li>
-                                <li>Solidaridad</li>
-                                <li>Sentido de Pertenencia</li>
+                                <li><i className="fa-solid fa-heart h6"></i> Amor por las mascotas</li>
+                                <li><i className="fa-solid fa-heart h6"></i> Responsabilidad</li>
+                                <li><i className="fa-solid fa-heart h6"></i> Respeto</li>
+                                <li><i className="fa-solid fa-heart h6"></i> Solidaridad</li>
+                                <li><i className="fa-solid fa-heart h6"></i> Sentido de Pertenencia</li>
                             </ul>
+                        </div>
+
+                        <h6 className='py-2 text-center'>
+                            Anímate y contáctanos para darle a tu mejor amigo peludo una experiencia
+                            relajante y llenito de amor!
                         </h6>
                     </div>
 

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Servicios } from '../components';
 import { serviciosContext } from '../context/servicios'
 
-import "../styles/Buscar.sass"
+import "../styles/BuscarNosotros.sass"
 
 const Buscar = () => {
 

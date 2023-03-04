@@ -1,0 +1,66 @@
+$fucsia: #B60478
+$pink: #f19dd425
+$blue-purple: #4E36B8
+
+/* -------------------------- Buscar ------------- */
+
+.searcher
+    width: 75%
+
+.input-search
+    border: 1px solid $fucsia
+    background-color: $pink
+    box-shadow: 0px 10px 8px -6px rgba(0, 0, 0, 0.347)
+
+.btn-search
+    background-color: $fucsia
+    color: white
+    transition: 200ms
+    &:hover
+        color: $fucsia
+        border: 1px solid $fucsia
+        background-color: white
+
+/* -------------------------- Nosotros ------------- */
+.textos
+    span
+        font-size: 26px
+
+    h5, h6, li
+        font-size: 23px
+    ul
+        padding: 0
+        list-style: none
+        i
+            color: $blue-purple
+
+.div_imgs
+    padding-bottom: 5%
+    /* border: green 2px solid */
+    img
+        object-fit: cover
+        width: 22%
+        height: 220px
+        margin: 1%
+        border-radius: 10px
+
+@media screen and (max-width: 768px)
+    /* -------------------------- Buscar ------------- */
+    .searcher
+        width: 100%
+
+    /* -------------------------- Nosotros ------------- */
+    .textos
+        span
+            font-size: 17px
+
+        h5
+            font-size: 18px
+        
+        h6, li
+            font-size: 16px
+
+    .div_imgs
+        img
+            width: 45%
+            height: 150px
