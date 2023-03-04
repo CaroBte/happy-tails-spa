@@ -1,0 +1,45 @@
+$purple: #924AC6
+$fucsia: #B60478
+$blue-purple: #4E36B8
+$footer-background: #F5E8FF
+$light-blue: #B1A4EC
+
+.cart-card
+    border-bottom: 2px solid $blue-purple
+
+    p
+        font-size: larger
+
+.mas-menos
+    width: 40%
+    button
+        background-color: $blue-purple
+        color: white
+        font-size: 13px
+    input
+        border-radius: 0
+        color: black
+        background-color: $light-blue
+.subt
+    background-color: $light-blue
+
+.total-cart
+    border-top: 1px solid $purple
+    border-bottom: 1px solid $purple
+
+.cart-img-container
+    width: 20%
+    img
+        width: 100%
+        height: 11rem
+        object-fit: cover
+
+@media screen and (max-width: 768px)
+
+    .cart-img-container
+        width: 50%
+        img
+            height: 7rem
+    .cart-card
+        p
+            font-size: medium

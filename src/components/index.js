@@ -6,5 +6,6 @@ import MenuBurger from "./MenuBurger"
 import MenuWeb from "./MenuWeb"
 import Servicios from "./Servicios"
 import BusquedaVacia from "./BusquedaVacia"
+import CarritoItem from "./CarritoItem"
 
-export { Login, MenuBurger, MenuWeb, Usuario, PetCard, PetInput, Servicios, BusquedaVacia }
+export { Login, MenuBurger, MenuWeb, Usuario, PetCard, PetInput, Servicios, BusquedaVacia, CarritoItem }
