@@ -23,7 +23,7 @@ const Home = () => {
             <img className='w-50' src="https://res.cloudinary.com/dxre2n1ja/image/upload/v1677540264/Happy%20Tails%20Spa%20App/56-560788_4paws-mobile-dog-spa-and-mobile-cat-spa_r9ccfm.jpg" alt="baño-perro" /> */}
           </div>
           <div className="bienvenidos text-uppercase">
-            <h1 className='fw-bold'>¡Bienvenidos!</h1>
+            <h1 className='fw-bold'>¡Bienvenid@s!</h1>
           </div>
           <h4 className='m-4 pb-3 border-bottom'><i className="fa-solid fa-bath user-icon"></i>  Nuestros Servicios</h4>
           <div className='container-cards d-flex flex-wrap justify-content-around'>

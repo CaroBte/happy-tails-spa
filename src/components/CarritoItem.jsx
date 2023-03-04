@@ -36,7 +36,7 @@ const CarritoItem = () => {
                     </div>
                         <div className="input-group__add-cart mt-3">
                             <button className='btn py-0'>
-                                <p className='my-0 user-icon'><i className="fa-solid fa-paw user-icon"></i> Eliminar del Carrito</p>
+                                <p className='my-0 user-icon'><i className="fa-solid fa-trash user-icon"></i> Eliminar del Carrito</p>
                             </button>
                         </div>
                 </div>
