@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { Footer } from '../layout'
+import React, { useContext, useEffect } from 'react'
 import { Servicios } from '../components'
 import { serviciosContext } from '../context/servicios'
 
