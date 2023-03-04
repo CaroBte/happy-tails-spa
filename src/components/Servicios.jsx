@@ -1,12 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import BusquedaVacia from './BusquedaVacia'
 
+const Servicios = ({lista}) => {
 
-const Servicios = ({ lista }) => {
+    const [cant, setCant] = useState(1)
+
+    const suma = () => {
+        setCant(cant + 1)
+    }
+
+    const resta = () => {
+        if (cant > 1) {
+            setCant(cant - 1)
+        }
+    }
+
 
     if (lista && lista.length === 0) return (
 
-        <BusquedaVacia/>
+        <BusquedaVacia />
     )
 
     return (
@@ -24,9 +36,9 @@ const Servicios = ({ lista }) => {
 
                         <div className="input-group d-flex flex-row">
                             <div className="input-group__mas-menos d-flex flex-row">
-                                <button className="btn py-0">+</button>
-                                <input disabled type="text" className="form-control" />
-                                <button className="btn py-0">-</button>
+                                <button className="btn py-0" onClick={suma}>+</button>
+                                <input disabled type="text text-center" className="form-control" value={cant}/>
+                                <button className="btn py-0" onClick={resta}>-</button>
                             </div>
 
                             <div className="input-group__add-cart">

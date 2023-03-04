@@ -1,7 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "../styles/Carrito.sass"
 
 const CarritoItem = () => {
+
+    const [cant, setCant] = useState(1)
+
+    const suma = () => {
+        setCant(cant + 1)
+    }
+
+    const resta = () => {
+        if (cant > 1) {
+            setCant(cant - 1)
+        }
+    }
+
     return (
         <>
             <div className="cart-card py-2 mb-3 mx-2 d-flex align-items-center" key="{id}">
@@ -12,13 +25,13 @@ const CarritoItem = () => {
                     <p className='text-decoration-underline m-0'>BÁSICO MASCOTA PEQUEÑA</p>
                     <p className='mb-2'><span className='purple-text'>Precio:  </span>$55.000</p>
                     <div className='subt rounded-2'>
-                        <div className='d-flex align-items-baseline'>
+                        <div className='d-flex align-items-baseline justify-content-between'>
                             <div className="input-group mas-menos m-0 ">
-                                <button className="btn btn-sm m-0">-</button>
-                                <input disabled type="text" className="w-25" />
-                                <button className="btn btn-sm m-0">+</button>
+                                <button className="btn btn-sm m-0" onClick={suma}>+</button>
+                                <input disabled type="text text-center" className="w-25" value={cant} />
+                                <button className="btn btn-sm m-0" onClick={resta}>-</button>
                             </div>
-                            <p className='m-0'>SubT: $55.000</p>
+                            <p className='m-0 px-2'>SubT: $55.000</p>
                         </div>
                     </div>
                         <div className="input-group__add-cart mt-3">
