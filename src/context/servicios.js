@@ -6,7 +6,7 @@ export const serviciosContext = createContext()
 export const ServiciosProvider = ({ children }) => {
 
     const [servicios, setServicios] = useState(null)
-    const [orden, setOrden] = useState([])
+    const [ordenes, setOrdenes] = useState([])
 
     const traerServicios = async () => {
         setServicios(null)
@@ -15,7 +15,7 @@ export const ServiciosProvider = ({ children }) => {
     }
 
     const variables = {
-        servicios, traerServicios, setServicios, orden, setOrden
+        servicios, traerServicios, setServicios, ordenes, setOrdenes
     }
 
     return (
