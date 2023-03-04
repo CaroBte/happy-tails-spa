@@ -57,13 +57,24 @@ body
 
 /* ---- Home ---- */
 .carrusel
+    position: relative
     display: flex
     overflow-y: auto
+    filter: grayscale(20%) contrast(80%) saturate(100%)
     img
         object-fit: cover
-        height: 200px
-        margin: 0.3%
-        border-radius: 3px
+        height: 180px
+        margin: 2% 0.5% 1%
+        border-radius: 10px
+
+.bienvenidos
+    position: absolute
+    left: 20%
+    top: 20%
+    filter: drop-shadow(2px 2px 3px black)
+    h1
+        font-size: 30px
+        color: white
 
 .serv-card
     width: 90%
@@ -178,6 +189,21 @@ body
 
         .img-card
             height: 12vw
+
+    .bienvenidos
+        position: absolute
+        left: 43%
+        top: 22%
+        filter: drop-shadow(4px 4px 5px black)
+        h1
+            font-size: 70px
+
+    .carrusel
+        img
+            object-fit: cover
+            height: 450px
+            margin: 2% 0.3% 1%
+            border-radius: 15px
 
     /* ------------- Footer ---- */
     .cont_footer
