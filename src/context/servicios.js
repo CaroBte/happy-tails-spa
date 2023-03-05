@@ -7,6 +7,8 @@ export const ServiciosProvider = ({ children }) => {
 
     const [servicios, setServicios] = useState(null)
     const [ordenes, setOrdenes] = useState([])
+    const [total, setTotal] = useState(0)
+    const [subtotales, setSubtotales] = useState([0])
 
     const traerServicios = async () => {
         setServicios(null)
@@ -15,7 +17,10 @@ export const ServiciosProvider = ({ children }) => {
     }
 
     const variables = {
-        servicios, traerServicios, setServicios, ordenes, setOrdenes
+        servicios, traerServicios, setServicios,
+        ordenes, setOrdenes,
+        subtotales, setSubtotales,
+        total, setTotal
     }
 
     return (
