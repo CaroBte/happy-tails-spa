@@ -1,10 +1,24 @@
 import React, { useContext } from 'react'
-import { CarritoCard } from '../components'
+import { CarritoVacio, CarritoCard } from '../components'
 import { servicios } from '../context'
 
 const Carrito = () => {
 
     const { ordenes, total } = useContext(servicios.serviciosContext)
+
+    if (ordenes && ordenes.length === 0) return (
+        <>
+            <div className='screen row justify-content-end gx-0'>
+                <div className="d-flex align-items-baseline px-4 mt-4 col-md-9">
+                    <i className="user-icon h3 fa-solid fa-cart-shopping"></i>
+                    <h5 className='mx-2'>Carrito</h5>
+                </div>
+                <div className='col-md-9'>
+                    <CarritoVacio />
+                </div>
+            </div>
+        </>
+    )
 
     return (
         <>
