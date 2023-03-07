@@ -33,12 +33,12 @@ const SobreNosotros = () => {
                             Nuestros Clientes Felices
                         </h5>
                         <div className='div_imgs d-flex flex-row flex-wrap justify-content-center'>
-                            <img src="https://res.cloudinary.com/dxre2n1ja/image/upload/v1677882626/Happy%20Tails%20Spa%20App/photo-1600272008408-6e05d5aa3e7a_u81i3z.jpg" alt="pet-image" />
-                            <img src="https://res.cloudinary.com/dxre2n1ja/image/upload/v1677882551/Happy%20Tails%20Spa%20App/perrocontento_dfqnk0.jpg" alt="pet-image" />
-                            <img src="https://res.cloudinary.com/dxre2n1ja/image/upload/v1677882550/Happy%20Tails%20Spa%20App/6ddbfe_2d8ca8e11c6c4d69a5d1cd36a80beab3_mv2_txba0u.jpg" alt="pet-image" />
-                            <img src="https://res.cloudinary.com/dxre2n1ja/image/upload/v1677882627/Happy%20Tails%20Spa%20App/Gato_beb_C3_A9_bo64ck.jpg" alt="pet-image" />
-                            <img src="https://res.cloudinary.com/dxre2n1ja/image/upload/v1677883698/Happy%20Tails%20Spa%20App/gato-durmiendo-tranquilamente-sobre-su-cama_543404-359_h9xbl5.jpg" alt="pet-image" />
-                            <img src="https://res.cloudinary.com/dxre2n1ja/image/upload/v1677883824/Happy%20Tails%20Spa%20App/como_puedo_mantener_a_mi_perro_siempre_limpio_15688_orig_wkpcls.jpg" alt="pet-image" />
+                            <img src="https://res.cloudinary.com/dxre2n1ja/image/upload/v1677882626/Happy%20Tails%20Spa%20App/photo-1600272008408-6e05d5aa3e7a_u81i3z.jpg" alt="pet" />
+                            <img src="https://res.cloudinary.com/dxre2n1ja/image/upload/v1677882551/Happy%20Tails%20Spa%20App/perrocontento_dfqnk0.jpg" alt="pet" />
+                            <img src="https://res.cloudinary.com/dxre2n1ja/image/upload/v1677882550/Happy%20Tails%20Spa%20App/6ddbfe_2d8ca8e11c6c4d69a5d1cd36a80beab3_mv2_txba0u.jpg" alt="pet" />
+                            <img src="https://res.cloudinary.com/dxre2n1ja/image/upload/v1677882627/Happy%20Tails%20Spa%20App/Gato_beb_C3_A9_bo64ck.jpg" alt="pet" />
+                            <img src="https://res.cloudinary.com/dxre2n1ja/image/upload/v1677883698/Happy%20Tails%20Spa%20App/gato-durmiendo-tranquilamente-sobre-su-cama_543404-359_h9xbl5.jpg" alt="pet" />
+                            <img src="https://res.cloudinary.com/dxre2n1ja/image/upload/v1677883824/Happy%20Tails%20Spa%20App/como_puedo_mantener_a_mi_perro_siempre_limpio_15688_orig_wkpcls.jpg" alt="pet" />
                         </div>
 
                         <h5 className='border-bottom border-danger-subtle'>

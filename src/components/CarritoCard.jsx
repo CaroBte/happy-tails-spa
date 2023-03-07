@@ -2,36 +2,23 @@ import React, { useState, useEffect, useContext } from 'react'
 import "../styles/Carrito.sass"
 import { servicios } from '../context'
 
-const CarritoCard = ({ img, nombre, precio, cantidad, id }) => {
+const CarritoCard = ({ img, nombre, precio, cantidad, id, suma, resta, eliminarOrden }) => {
 
-    const [cant, setCant] = useState(cantidad)
     const [subtotal, setSubtotal] = useState(precio * 1000 * cantidad)
-    const { setTotal, total, subtotales, setSubtotales, ordenes } = useContext(servicios.serviciosContext)
+    const { subtotales, setSubtotales, ordenes } = useContext(servicios.serviciosContext)
 
     const primerTotal = () => {
         setSubtotales(subtotales => [...subtotales, subtotal])
     }
 
     useEffect(() => {
-        if (subtotales.length + 1 !== ordenes.length)
+        if (subtotales.length !== ordenes.length + 1)
             primerTotal()
-    }, []) /* hace el push cada que se monta el componente :c */
+    }, []) /* revisar array de subtotales -> cuadrarlo como ordenes */
 
     useEffect(() => {
-        setSubtotal(cant * precio * 1000);
-    }, [cant])
-
-    const suma = (precio) => {
-        setCant(cant + 1)
-        setTotal(total + parseInt(precio * 1000))
-    }
-
-    const resta = (precio) => {
-        if (cant > 1) {
-            setCant(cant - 1)
-            setTotal(total - parseInt(precio * 1000))
-        }
-    }
+        setSubtotal(cantidad * precio * 1000);
+    }, [cantidad])
 
     return (
         <>
@@ -45,15 +32,15 @@ const CarritoCard = ({ img, nombre, precio, cantidad, id }) => {
                     <div className='subt rounded-2'>
                         <div className='d-flex align-items-baseline justify-content-between'>
                             <div className="input-group mas-menos m-0 ">
-                                <button className="btn btn-sm m-0" onClick={() => suma(precio)}>+</button>
-                                <input disabled type="text text-center" className="w-25" value={cant} />
-                                <button className="btn btn-sm m-0" onClick={() => resta(precio)}>-</button>
+                                <button className="btn btn-sm m-0" onClick={() => suma(id)}>+</button>
+                                <input disabled type="text text-center" className="w-25" value={cantidad} />
+                                <button className="btn btn-sm m-0" onClick={() => resta(id)}>-</button>
                             </div>
                             <p className='m-0 px-2'>Subtotal: ${subtotal}</p>
                         </div>
                     </div>
                     <div className="input-group__add-cart mt-3">
-                        <button className='btn py-0'>
+                        <button onClick={() => eliminarOrden(id)} className='btn py-0'>
                             <p className='my-0 user-icon'><i className="fa-solid fa-trash user-icon"></i> Eliminar del Carrito</p>
                         </button>
                     </div>

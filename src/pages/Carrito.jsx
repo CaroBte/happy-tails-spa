@@ -4,11 +4,30 @@ import { servicios } from '../context'
 
 const Carrito = () => {
 
-    const { ordenes, setTotal, total, subtotales, } = useContext(servicios.serviciosContext)
+    const { setOrdenes, ordenes, setTotal, total, subtotales, } = useContext(servicios.serviciosContext)
 
     const actualizarTotal = () => {
         const resTotal = subtotales.reduce((totalAc, valorAct) => totalAc = totalAc + valorAct)
         setTotal(resTotal)
+    }
+
+    const suma = (_id) => {
+        let orden = ordenes.find((o) => o.id === _id)
+        orden.cantidad = orden.cantidad + 1
+        setTotal(total + parseInt(orden.precio * 1000))
+    }
+
+    const resta = (_id) => {
+        let orden = ordenes.find((o) => o.id === _id)
+        if (orden.cantidad > 1) {
+            orden.cantidad = orden.cantidad - 1
+            setTotal(total - parseInt(orden.precio * 1000))
+        }
+    }
+
+    const eliminarOrden = (_id) => {
+        let ordenesFiltradas = ordenes.filter((o) => o.id !== _id)
+        setOrdenes(ordenesFiltradas)
     }
 
     useEffect(() => {
@@ -45,6 +64,9 @@ const Carrito = () => {
                                 precio={o.precio}
                                 cantidad={o.cantidad}
                                 id={o.id}
+                                suma={suma}
+                                resta={resta}
+                                eliminarOrden={eliminarOrden}
                             />
                         )
                     })}

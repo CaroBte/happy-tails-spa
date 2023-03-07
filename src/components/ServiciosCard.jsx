@@ -16,11 +16,19 @@ const ServiciosCard = ({ id, img, nombre, precio, descripcion }) => {
         }
     }
 
-    const nuevaOrden = () => {
-        let OrdenInfo = {
-            id, nombre, img, precio, cantidad
+    let OrdenInfo = {
+        id, nombre, img, precio, cantidad
+    }
+
+    const nuevaOrden = (_id) => {
+
+        if (ordenes.find((o) => o.id === _id)) {
+            alert("ya existe")
+        } else {
+            alert("creando tu orden...")
+            setOrdenes(ordenes => [...ordenes, OrdenInfo])
         }
-        setOrdenes(ordenes => [...ordenes, OrdenInfo])
+
     }
 
     return (
@@ -40,7 +48,7 @@ const ServiciosCard = ({ id, img, nombre, precio, descripcion }) => {
                 </div>
 
                 <div className="input-group__add-cart">
-                    <button className='btn py-0' onClick={nuevaOrden}>
+                    <button className='btn py-0' onClick={() => nuevaOrden(id)}>
                         <p><i className="fa-solid fa-paw user-icon" ></i> Añadir al Carrito</p>
                     </button>
                 </div>
