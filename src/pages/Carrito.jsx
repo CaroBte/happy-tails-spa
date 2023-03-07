@@ -1,10 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { CarritoVacio, CarritoCard } from '../components'
 import { servicios } from '../context'
 
 const Carrito = () => {
 
-    const { ordenes, total } = useContext(servicios.serviciosContext)
+    const { ordenes, setTotal, total, subtotales, } = useContext(servicios.serviciosContext)
+
+    const actualizarTotal = () => {
+        const resTotal = subtotales.reduce((totalAc, valorAct) => totalAc = totalAc + valorAct)
+        setTotal(resTotal)
+    }
+
+    useEffect(() => {
+        actualizarTotal()
+    }, [subtotales])
 
     if (ordenes && ordenes.length === 0) return (
         <>

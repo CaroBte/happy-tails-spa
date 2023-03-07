@@ -15,19 +15,21 @@ const CarritoCard = ({ img, nombre, precio, cantidad, id }) => {
     useEffect(() => {
         if (subtotales.length + 1 !== ordenes.length)
             primerTotal()
-    }, [])
+    }, []) /* hace el push cada que se monta el componente :c */
 
     useEffect(() => {
         setSubtotal(cant * precio * 1000);
     }, [cant])
 
-    const suma = () => {
+    const suma = (precio) => {
         setCant(cant + 1)
+        setTotal(total + parseInt(precio * 1000))
     }
 
-    const resta = () => {
+    const resta = (precio) => {
         if (cant > 1) {
             setCant(cant - 1)
+            setTotal(total - parseInt(precio * 1000))
         }
     }
 
@@ -43,9 +45,9 @@ const CarritoCard = ({ img, nombre, precio, cantidad, id }) => {
                     <div className='subt rounded-2'>
                         <div className='d-flex align-items-baseline justify-content-between'>
                             <div className="input-group mas-menos m-0 ">
-                                <button className="btn btn-sm m-0" onClick={suma}>+</button>
+                                <button className="btn btn-sm m-0" onClick={() => suma(precio)}>+</button>
                                 <input disabled type="text text-center" className="w-25" value={cant} />
-                                <button className="btn btn-sm m-0" onClick={resta}>-</button>
+                                <button className="btn btn-sm m-0" onClick={() => resta(precio)}>-</button>
                             </div>
                             <p className='m-0 px-2'>Subtotal: ${subtotal}</p>
                         </div>
