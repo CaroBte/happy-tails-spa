@@ -8,7 +8,7 @@ const Footer = () => {
 
             <div className="row justify-content-end gx-0">
 
-                <div className="cont_footer d-flex col-md-9">
+                <div className="cont_footer d-flex col-md-9" id='footer'>
                     <div className="title_footer text-uppercase mx-2 py-2">
                         <h2>Happy Tails Spa</h2>
                     </div>

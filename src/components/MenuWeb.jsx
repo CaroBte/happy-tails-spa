@@ -3,6 +3,19 @@ import { Link } from 'react-router-dom'
 
 
 const MenuWeb = () => {
+    const body = document.querySelector("body")
+
+    const handleTema = () => {
+        
+        const navBurguer = document.querySelector('.menuBurger')
+        const footer = document.querySelector('#footer')
+
+        body.classList.toggle('dark')
+        navBurguer.classList.toggle('dark')
+        footer.classList.toggle('dark')
+
+    }
+
     return (
         <>
             <div className="d-flex flex-column fixed-left">
@@ -44,10 +57,10 @@ const MenuWeb = () => {
                     </div>
 
                     <div className="list_two d-flex flex-column">
-                        <Link className="nav-item mx-3">
+                        <div className="nav-item mx-3 tema_web" onClick={handleTema}>
                             <i className="fa-solid fa-circle-half-stroke h3"></i>
                             Tema
-                        </Link>
+                        </div>
 
                         <Link to={"/nosotros"} className="nav-item mx-3">
                             <i className="fa-solid fa-mobile-screen h3"></i>

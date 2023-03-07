@@ -3,13 +3,23 @@ $purple: #924AC6
 $fucsia: #B60478
 $blue-purple: #4E36B8
 $footer-background: #F5E8FF
+$purple-dark-mode: #160720
+$purple-dark-mode-footer: #370959
 
 body
     font-family: Capriola
+    &.dark
+        background-color: $purple-dark-mode
+        color: white
 
 /* -------------------------------- NavBar ---- */
 .menu-web
     display: none
+
+.menuBurger
+    &.dark
+        background-color: $purple-dark-mode
+        color: white
 
 .cont_nav
     background-color: $purple
@@ -36,12 +46,16 @@ body
     right: 8%
     top: 4%
     color: $purple
+    cursor: pointer
 
 .div_ppal
     margin-top: 5%
     font-size: 22px
     width: 100%
     justify-content: space-between
+    &.dark
+        background-color: $purple-dark-mode
+        color: white
     a
         margin-bottom: 5%
         text-decoration: none
@@ -51,9 +65,13 @@ body
             color: $fucsia
             margin-right: 4%
     .list_two
+        cursor: pointer
         i
             color: $blue-purple
             margin-right: 4%
+
+.tema_web.tema_cel
+    cursor: pointer
 
 /* ---- Home ---- */
 .carrusel
@@ -118,6 +136,8 @@ body
 .cont_footer
     flex-direction: column
     background-color: $footer-background
+    &.dark
+        background-color: $purple-dark-mode-footer
     .div_info
         flex-direction: column
         .info
