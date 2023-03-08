@@ -60,6 +60,7 @@ body
         margin-bottom: 5%
         text-decoration: none
         color: inherit
+    
     .list_one
         i
             color: $fucsia
@@ -76,19 +77,16 @@ body
 /* ---- Home ---- */
 .carrusel
     position: relative
-    display: flex
-    overflow-y: auto
     filter: grayscale(20%) contrast(80%) saturate(100%)
     img
         object-fit: cover
-        height: 180px
-        margin: 2% 0.5% 1%
-        border-radius: 10px
+        height: 220px
+        border-radius: 5px
 
 .bienvenidos
     position: absolute
     left: 4rem
-    top: 9.5rem
+    top: 12rem
     filter: drop-shadow(2px 2px 3px black)
     h1
         font-size: 30px
@@ -173,7 +171,7 @@ body
         a
             color: inherit
 
-@media screen and (min-width: 768px)
+@media screen and (min-width: 770px)
 
     /* -------------------------------- NavBar ---- */
     .menu-burguer
@@ -183,24 +181,26 @@ body
         display: flex
         position: fixed
         width: 22%
-        height: 98%
-        margin-left: 2.5%
+        height: 100%
+        padding-left: 1.5%
+        margin-left: 1.5%
 
     .name_logo
         color: $purple
         text-transform: uppercase
         i
             margin: 9% 0
-            font-size: 140px
+            font-size: 100px
         h1
+            font-size: 30px
             text-align: center
 
     .div_ppal
-        margin: 12% 3%
+        margin: 8% 3%
         a
             margin-bottom: 3%
         .list_two
-            margin-top: 50%
+            margin-top: 25%
             i
                 color: $blue-purple
 
@@ -216,16 +216,16 @@ body
     .bienvenidos
         position: absolute
         left: 30rem
-        top: 10rem
+        top: 15rem
         h1
             font-size: 55px
 
     .carrusel
         img
             object-fit: cover
-            height: 450px
-            margin: 2% 0.3% 1%
-            border-radius: 15px
+            height: 500px
+            margin: 0.5% auto
+            border-radius: 8px
 
     /* ------------- Footer ---- */
     .cont_footer
@@ -245,6 +245,6 @@ body
     .bienvenidos
         position: absolute
         left: 40rem
-        top: 10rem
+        top: 20rem
         h1
             font-size: 70px
