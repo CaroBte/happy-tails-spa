@@ -4,24 +4,34 @@ import { servicios } from '../context'
 
 const Carrito = () => {
 
-    const { setOrdenes, ordenes, setTotal, total, subtotales, } = useContext(servicios.serviciosContext)
+    const { setOrdenes, ordenes, setTotal, total } = useContext(servicios.serviciosContext)
+
+    let subtotalesOrdenes = []
 
     const actualizarTotal = () => {
-        const resTotal = subtotales.reduce((totalAc, valorAct) => totalAc = totalAc + valorAct)
-        setTotal(resTotal)
+        ordenes.forEach(orden => {
+            subtotalesOrdenes.push(orden.subtotalOrden)
+        });
+
+        if (subtotalesOrdenes.length !== 0) {
+            const resTotal = subtotalesOrdenes.reduce((totalAc, valorAct) => totalAc = totalAc + valorAct)
+            setTotal(resTotal)
+        }
     }
 
     const suma = (_id) => {
         let orden = ordenes.find((o) => o.id === _id)
         orden.cantidad = orden.cantidad + 1
-        setTotal(total + parseInt(orden.precio * 1000))
+        orden.subtotalOrden = orden.cantidad * orden.precio
+        setTotal(total + parseInt(orden.precio))
     }
 
     const resta = (_id) => {
         let orden = ordenes.find((o) => o.id === _id)
         if (orden.cantidad > 1) {
             orden.cantidad = orden.cantidad - 1
-            setTotal(total - parseInt(orden.precio * 1000))
+            orden.subtotalOrden = orden.cantidad * orden.precio
+            setTotal(total - parseInt(orden.precio))
         }
     }
 
@@ -32,7 +42,7 @@ const Carrito = () => {
 
     useEffect(() => {
         actualizarTotal()
-    }, [subtotales])
+    }, [ordenes])
 
     if (ordenes && ordenes.length === 0) return (
         <>
@@ -64,6 +74,7 @@ const Carrito = () => {
                                 precio={o.precio}
                                 cantidad={o.cantidad}
                                 id={o.id}
+                                subtotalOrden={o.subtotalOrden}
                                 suma={suma}
                                 resta={resta}
                                 eliminarOrden={eliminarOrden}

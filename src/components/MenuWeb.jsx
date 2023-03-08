@@ -6,7 +6,7 @@ const MenuWeb = () => {
     const body = document.querySelector("body")
 
     const handleTema = () => {
-        
+
         const navBurguer = document.querySelector('.menuBurger')
         const footer = document.querySelector('#footer')
 
@@ -20,11 +20,11 @@ const MenuWeb = () => {
         <>
             <div className="d-flex flex-column fixed-left">
 
-                <div className="name_logo d-flex flex-column align-items-center">
+                <Link to={"/"} className="name_logo d-flex flex-column align-items-center text-decoration-none">
                     <i className="fa-solid fa-paw h3"></i>
                     <h1>Happy Tails</h1>
                     <h1>Spa</h1>
-                </div>
+                </Link>
 
                 <div className="navbar-nav div_ppal d-flex flex-column">
 

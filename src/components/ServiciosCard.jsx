@@ -17,7 +17,7 @@ const ServiciosCard = ({ id, img, nombre, precio, descripcion }) => {
     }
 
     let OrdenInfo = {
-        id, nombre, img, precio, cantidad
+        id, nombre, img, precio, cantidad, subtotalOrden: precio * cantidad
     }
 
     const nuevaOrden = (_id) => {
@@ -28,7 +28,6 @@ const ServiciosCard = ({ id, img, nombre, precio, descripcion }) => {
             alert("creando tu orden...")
             setOrdenes(ordenes => [...ordenes, OrdenInfo])
         }
-
     }
 
     return (

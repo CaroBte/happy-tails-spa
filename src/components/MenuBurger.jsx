@@ -6,7 +6,7 @@ const MenuBurger = () => {
   const body = document.querySelector("body")
 
   const handleTema = () => {
-    
+
     const navBurguer = document.querySelector('.menuBurger')
     const footer = document.querySelector('#footer')
 
@@ -19,8 +19,9 @@ const MenuBurger = () => {
     <>
       <nav className="navbar navbar-expand-lg d-flex cont_nav">
         <div className="container-fluid d-flex ">
-          <h1 className='navbar-brand h1_title'>Happy Tails Spa</h1> {/* Link que lleve al Home */}
-
+          <Link className='text-decoration-none' to={"/"}>
+            <h1 className='navbar-brand h1_title'>Happy Tails Spa</h1>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"

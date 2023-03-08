@@ -1,24 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React from 'react'
 import "../styles/Carrito.sass"
-import { servicios } from '../context'
 
-const CarritoCard = ({ img, nombre, precio, cantidad, id, suma, resta, eliminarOrden }) => {
-
-    const [subtotal, setSubtotal] = useState(precio * 1000 * cantidad)
-    const { subtotales, setSubtotales, ordenes } = useContext(servicios.serviciosContext)
-
-    const primerTotal = () => {
-        setSubtotales(subtotales => [...subtotales, subtotal])
-    }
-
-    useEffect(() => {
-        if (subtotales.length !== ordenes.length + 1)
-            primerTotal()
-    }, []) /* revisar array de subtotales -> cuadrarlo como ordenes */
-
-    useEffect(() => {
-        setSubtotal(cantidad * precio * 1000);
-    }, [cantidad])
+const CarritoCard = ({ img, nombre, precio, cantidad, id, subtotalOrden, suma, resta, eliminarOrden }) => {
 
     return (
         <>
@@ -36,7 +19,7 @@ const CarritoCard = ({ img, nombre, precio, cantidad, id, suma, resta, eliminarO
                                 <input disabled type="text text-center" className="w-25" value={cantidad} />
                                 <button className="btn btn-sm m-0" onClick={() => resta(id)}>-</button>
                             </div>
-                            <p className='m-0 px-2'>Subtotal: ${subtotal}</p>
+                            <p className='m-0 px-2'>Subtotal: ${subtotalOrden}</p>
                         </div>
                     </div>
                     <div className="input-group__add-cart mt-3">
