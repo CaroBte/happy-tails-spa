@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { servicios } from '../context'
 
 
 const MenuBurger = () => {
+
+  const { ordenes } = useContext(servicios.serviciosContext)
+
   const body = document.querySelector("body")
 
   const handleTema = () => {
@@ -29,7 +33,13 @@ const MenuBurger = () => {
             data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar"
           >
-            <i className="fa-solid fa-bars burger_icon"></i>
+            <i className="fa-solid fa-bars burger_icon position-relative">
+              {
+                ordenes.length > 0 && (
+                  <span class="position-absolute top-0 start-75 translate-middle p-1 border border-light rounded-circle notification"></span>
+                )
+              }
+            </i>
           </button>
 
           <div
@@ -64,7 +74,15 @@ const MenuBurger = () => {
                   </Link>
 
                   <Link to={"/carrito"} className="nav-item mx-3">
-                    <i className="fa-solid fa-cart-shopping h3"></i>
+                    <i className="fa-solid fa-cart-shopping h3 position-relative">
+                      {
+                        ordenes.length > 0 && (
+                          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill">
+                            {ordenes.length}
+                          </span>
+                        )
+                      }
+                    </i>
                     Carrito
                   </Link>
 

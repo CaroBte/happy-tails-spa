@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { servicios } from '../context'
 
 
 const MenuWeb = () => {
+
+    const { ordenes } = useContext(servicios.serviciosContext)
+
     const body = document.querySelector("body")
 
     const handleTema = () => {
@@ -41,7 +45,15 @@ const MenuWeb = () => {
                         </Link>
 
                         <Link to={"/carrito"} className="nav-item mx-3">
-                            <i className="fa-solid fa-cart-shopping h3"></i>
+                            <i className="fa-solid fa-cart-shopping h3 position-relative">
+                                {
+                                    ordenes.length > 0 && (
+                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill">
+                                            {ordenes.length}
+                                        </span>
+                                    )
+                                }
+                            </i>
                             Carrito
                         </Link>
 
