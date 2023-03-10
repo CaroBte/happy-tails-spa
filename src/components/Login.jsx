@@ -1,6 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { authAPI } from '../api/'
+import { usuario } from '../context'
 
 const Login = () => {
+
+    const { enviarUsuario, setUsuarioActual, usuarioActual } = useContext(usuario.usuariosContext)
+
+    const handleLogin = async () => {
+        const usuarioLogin = await authAPI.login()
+        const nuevoUsuario = {
+            "nombre": usuarioLogin.displayName,
+            "correo": usuarioLogin.email,
+            "imagen": usuarioLogin.photoURL,
+            "id": usuarioLogin.uid
+        }
+        await enviarUsuario(nuevoUsuario, nuevoUsuario.id)
+        setUsuarioActual(nuevoUsuario)
+    }
+
     return (
         <>
             <div className="screen row gx-0">
@@ -8,7 +25,7 @@ const Login = () => {
                 <div className='col-md-5'>
                     <div className='d-flex align-items-baseline mx-4 mt-5'>
                         <i className="user-icon h3 fa-solid fa-user"></i>
-                        <h5 className='mx-2'>Perfil</h5>
+                        <h5 className='mx-2'>Login</h5>
                     </div>
 
                     <div className=" d-flex my-3">
@@ -40,7 +57,7 @@ const Login = () => {
                 <div className='col-md-3'></div>
                 <div className="d-flex flex-column col-md-7">
                     <h5 className='text-center mb-5 register'>Regístrate para tener una mejor experiencia en nuestra Web</h5>
-                    <button className="btn btn-login mx-2 mb-2 mx-md-auto ">Log In</button>
+                    <button onClick={handleLogin} className="btn btn-login mx-2 mb-2 mx-md-auto ">Log In</button>
                 </div>
 
             </div>

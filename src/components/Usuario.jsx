@@ -1,12 +1,25 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import PetCard from './PetCard'
 import PetInput from './PetInput'
 import { Formik, Field, Form } from 'formik'
+import { authAPI } from '../api/'
+import { usuario } from '../context'
 
 const Usuario = () => {
 
+    const { usuarioActual, setUsuarioActual } = useContext(usuario.usuariosContext)
+
+    useEffect(() => {
+        console.log(usuarioActual);
+    }, [])
+
+
     const handleSubmit = (values) => {
         console.log(values);
+    }
+
+    const handleLogout = () => {
+        authAPI.logout();
     }
 
     return (
@@ -20,22 +33,18 @@ const Usuario = () => {
                     </div>
 
                     <div className=" d-flex my-3">
-                        <img className='m-auto rounded-circle image-profile ' src="https://res.cloudinary.com/dxre2n1ja/image/upload/v1677613038/Happy%20Tails%20Spa%20App/Account-Avatar-Profile-PNG-Photo_nqxxzd.png" width={"20%"} alt="User Logo" />
+                        <img className='m-auto rounded-circle image-profile ' src={usuarioActual.imagen} width={"20%"} alt="User" />
                     </div>
-
-                    <Formik
-
+                    {usuarioActual ? <Formik
                         initialValues={{
-                            nombre: "",
-                            correo: "",
-                            contrasena: "",
+                            nombre: `${usuarioActual.nombre}`,
+                            correo: `${usuarioActual.correo}`,
                             telefono: "",
                             direccion: "",
-                            imagen: ""
+                            imagen: `${usuarioActual.imagen}`
                         }}
 
                         onSubmit={handleSubmit}
-
                     >
 
                         {() => (
@@ -52,8 +61,8 @@ const Usuario = () => {
                                     <i className="fa-solid fa-pencil opacity-25"></i>
                                 </label>
 
-                                <label className='d-flex flex-column form-label title '>Contraseña
-                                    <Field className='border-0 border-bottom input-login' name='contrasena' type="password" autoComplete="current-password" />
+                                <label className='d-flex flex-column form-label title '>URL imagen de perfil
+                                    <Field className='border-0 border-bottom input-login' name='imagen' type="text" />
                                     <i className="fa-solid fa-pencil opacity-25"></i>
                                 </label>
 
@@ -71,18 +80,22 @@ const Usuario = () => {
 
                                 <div className="btns-profile-web">
                                     <button className="btn btn-login mx-2 mb-2 mx-md-1 " type='submit'>Guardar</button>
-                                    <button className="btn btn-logout mx-2 mb-2 mx-md-1 ">Log Out</button>
+                                    <button type="button" onClick={handleLogout} className="btn btn-logout mx-2 mb-2 mx-md-1 ">Log Out</button>
                                 </div>
                                 <div className='col-md-3'></div>
                                 <div className="col-md-7 btns-profile-mobile">
                                     <button className="btn btn-login mx-2 mb-2 mx-md-1 " type='submit'>Guardar</button>
-                                    <button className="btn btn-logout mx-2 mb-2 mx-md-1 ">Log Out</button>
+                                    <button type="button" onClick={handleLogout} className="btn btn-logout mx-2 mb-2 mx-md-1 ">Log Out</button>
                                 </div>
                             </Form>
-
                         )}
+                    </Formik> :
+                        <>
+                            <h2>cargando...</h2>
+                            <button type="button" onClick={handleLogout} className="btn btn-logout mx-2 mb-2 mx-md-1 ">Log Out</button>
+                        </>
+                    }
 
-                    </Formik>
                 </div>
 
                 <div className="my-pets px-4 mb-5 col-md-4 d-flex flex-column justify-content-center align-items-center">
