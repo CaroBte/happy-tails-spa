@@ -73,7 +73,11 @@ const Usuario = () => {
                                     <button className="btn btn-login mx-2 mb-2 mx-md-1 " type='submit'>Guardar</button>
                                     <button className="btn btn-logout mx-2 mb-2 mx-md-1 ">Log Out</button>
                                 </div>
-
+                                <div className='col-md-3'></div>
+                                <div className="col-md-7 btns-profile-mobile">
+                                    <button className="btn btn-login mx-2 mb-2 mx-md-1 " type='submit'>Guardar</button>
+                                    <button className="btn btn-logout mx-2 mb-2 mx-md-1 ">Log Out</button>
+                                </div>
                             </Form>
 
                         )}
@@ -88,13 +92,6 @@ const Usuario = () => {
                     <PetCard />
 
                     <PetInput />
-                </div>
-
-
-                <div className='col-md-3'></div>
-                <div className="col-md-7 btns-profile-mobile">
-                    <button className="btn btn-login mx-2 mb-2 mx-md-1 ">Guardar</button>
-                    <button className="btn btn-logout mx-2 mb-2 mx-md-1 ">Log Out</button>
                 </div>
 
             </div>
