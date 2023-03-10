@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import PetCard from './PetCard'
 import PetInput from './PetInput'
 import { Formik, Field, Form } from 'formik'
@@ -7,15 +7,11 @@ import { usuario } from '../context'
 
 const Usuario = () => {
 
-    const { usuarioActual, setUsuarioActual } = useContext(usuario.usuariosContext)
+    const { usuarioActual, enviarUsuario, traerUsuario } = useContext(usuario.usuariosContext)
 
-    useEffect(() => {
-        console.log(usuarioActual);
-    }, [])
-
-
-    const handleSubmit = (values) => {
-        console.log(values);
+    const handleSubmit = async (values) => {
+        await enviarUsuario(values, usuarioActual.id)
+        await traerUsuario(usuarioActual.id)
     }
 
     const handleLogout = () => {
@@ -35,7 +31,7 @@ const Usuario = () => {
                     <div className=" d-flex my-3">
                         <img className='m-auto rounded-circle image-profile ' src={usuarioActual.imagen} width={"20%"} alt="User" />
                     </div>
-                    {usuarioActual ? <Formik
+                    <Formik
                         initialValues={{
                             nombre: `${usuarioActual.nombre}`,
                             correo: `${usuarioActual.correo}`,
@@ -44,8 +40,7 @@ const Usuario = () => {
                             imagen: `${usuarioActual.imagen}`
                         }}
 
-                        onSubmit={handleSubmit}
-                    >
+                        onSubmit={handleSubmit}>
 
                         {() => (
 
@@ -89,12 +84,7 @@ const Usuario = () => {
                                 </div>
                             </Form>
                         )}
-                    </Formik> :
-                        <>
-                            <h2>cargando...</h2>
-                            <button type="button" onClick={handleLogout} className="btn btn-logout mx-2 mb-2 mx-md-1 ">Log Out</button>
-                        </>
-                    }
+                    </Formik>
 
                 </div>
 

@@ -16,9 +16,9 @@ export const UsuariosProvider = ({ children }) => {
         }
     })
 
-    const enviarUsuario = async (_usuario) => {
+    const enviarUsuario = async (_usuario, id) => {
         try {
-            await usuariosAPI.enviarUsuario(_usuario, _usuario.id)
+            await usuariosAPI.enviarUsuario(_usuario, id)
         } catch (error) {
             console.log(error);
         }
@@ -27,7 +27,7 @@ export const UsuariosProvider = ({ children }) => {
     const traerUsuario = async (id) => {
         try {
             const usuarioFirebase = await usuariosAPI.detallesUsuario(id)
-            setUsuarioActual(usuarioFirebase)
+            setUsuarioActual(usuarioFirebase.usuario)
         } catch (error) {
             console.log(error);
         }

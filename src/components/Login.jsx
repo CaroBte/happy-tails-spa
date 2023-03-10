@@ -4,7 +4,7 @@ import { usuario } from '../context'
 
 const Login = () => {
 
-    const { enviarUsuario, setUsuarioActual, usuarioActual } = useContext(usuario.usuariosContext)
+    const { enviarUsuario, setUsuarioActual } = useContext(usuario.usuariosContext)
 
     const handleLogin = async () => {
         const usuarioLogin = await authAPI.login()
@@ -15,6 +15,7 @@ const Login = () => {
             "id": usuarioLogin.uid
         }
         await enviarUsuario(nuevoUsuario, nuevoUsuario.id)
+        /* Buscar forma de validar si el usuario ya existe */
         setUsuarioActual(nuevoUsuario)
     }
 
