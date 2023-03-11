@@ -48,7 +48,7 @@ const MenuWeb = () => {
                             <i className="fa-solid fa-cart-shopping h3 position-relative">
                                 {
                                     ordenes.length > 0 && (
-                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill">
+                                        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill">
                                             {ordenes.length}
                                         </span>
                                     )

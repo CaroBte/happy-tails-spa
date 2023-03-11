@@ -18,6 +18,14 @@ const Usuario = () => {
         authAPI.logout();
     }
 
+    if (!usuarioActual.direccion) {
+        usuarioActual.direccion = ""
+    }
+
+    if (!usuarioActual.telefono) {
+        usuarioActual.telefono = ""
+    }
+
     return (
         <>
             <div className="screen row gx-0">
@@ -31,12 +39,13 @@ const Usuario = () => {
                     <div className=" d-flex my-3">
                         <img className='m-auto rounded-circle image-profile ' src={usuarioActual.imagen} width={"20%"} alt="User" />
                     </div>
+
                     <Formik
                         initialValues={{
                             nombre: `${usuarioActual.nombre}`,
                             correo: `${usuarioActual.correo}`,
-                            telefono: "",
-                            direccion: "",
+                            telefono: `${usuarioActual.telefono}`,
+                            direccion: `${usuarioActual.direccion}`,
                             imagen: `${usuarioActual.imagen}`
                         }}
 

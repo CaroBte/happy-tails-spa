@@ -36,7 +36,7 @@ const MenuBurger = () => {
             <i className="fa-solid fa-bars burger_icon position-relative">
               {
                 ordenes.length > 0 && (
-                  <span class="position-absolute top-0 start-75 translate-middle p-1 border border-light rounded-circle notification"></span>
+                  <span className="position-absolute top-0 start-75 translate-middle p-1 border border-light rounded-circle notification"></span>
                 )
               }
             </i>
@@ -77,7 +77,7 @@ const MenuBurger = () => {
                     <i className="fa-solid fa-cart-shopping h3 position-relative">
                       {
                         ordenes.length > 0 && (
-                          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill">
+                          <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill">
                             {ordenes.length}
                           </span>
                         )

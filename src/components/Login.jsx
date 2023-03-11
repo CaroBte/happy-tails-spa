@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
 import { authAPI } from '../api/'
+import { validarExistencia } from '../api/usuariosAPI'
 import { usuario } from '../context'
 
 const Login = () => {
 
-    const { enviarUsuario, setUsuarioActual } = useContext(usuario.usuariosContext)
+    const { enviarUsuario, setUsuarioActual, usuarioActual } = useContext(usuario.usuariosContext)
 
     const handleLogin = async () => {
         const usuarioLogin = await authAPI.login()
@@ -14,9 +15,14 @@ const Login = () => {
             "imagen": usuarioLogin.photoURL,
             "id": usuarioLogin.uid
         }
-        await enviarUsuario(nuevoUsuario, nuevoUsuario.id)
         /* Buscar forma de validar si el usuario ya existe */
-        setUsuarioActual(nuevoUsuario)
+        const existe = await validarExistencia(nuevoUsuario.id)
+        if (existe) {
+            setUsuarioActual(existe.usuario)
+        } else {
+            await enviarUsuario(nuevoUsuario, nuevoUsuario.id)
+            setUsuarioActual(nuevoUsuario)
+        }
     }
 
     return (

@@ -11,3 +11,14 @@ export const detallesUsuario = async (id) => {
     usuario.id = usuarioData.id
     return { usuario: usuario }
 }
+
+export const validarExistencia = async (id) => {
+    const usuarioData = await getDoc(doc(usuariosCollecion, id))
+    if (usuarioData.exists()) {
+        const usuario = usuarioData.data()
+        usuario.id = usuarioData.id
+        return { usuario: usuario }
+    } else {
+        return false
+    }
+}
