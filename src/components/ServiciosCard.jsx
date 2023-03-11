@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { servicios } from '../context'
+import Swal from 'sweetalert2'
 
 const ServiciosCard = ({ id, img, nombre, precio, descripcion }) => {
 
@@ -23,9 +24,30 @@ const ServiciosCard = ({ id, img, nombre, precio, descripcion }) => {
     const nuevaOrden = (_id) => {
 
         if (ordenes.find((o) => o.id === _id)) {
-            alert("ya existe")
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'bottom',
+                showConfirmButton: false,
+                timer: 3000,
+              })
+              
+              Toast.fire({
+                icon: 'warning',
+                text: 'Este servicio ya está en tu carrito'
+              })
+
         } else {
-            alert("creando tu orden...")
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'bottom',
+                showConfirmButton: false,
+                timer: 3000,
+            })
+
+            Toast.fire({
+                icon: 'success',
+                text: 'Tu servicio ha sido agregado al carrito'
+            })
             setOrdenes(ordenes => [...ordenes, OrdenInfo])
         }
     }

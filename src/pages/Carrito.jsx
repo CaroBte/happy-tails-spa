@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { CarritoVacio, CarritoCard } from '../components'
 import { servicios } from '../context'
+import Swal from 'sweetalert2'
 
 const Carrito = () => {
 
@@ -38,6 +39,32 @@ const Carrito = () => {
     const eliminarOrden = (_id) => {
         let ordenesFiltradas = ordenes.filter((o) => o.id !== _id)
         setOrdenes(ordenesFiltradas)
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'bottom',
+            showConfirmButton: false,
+            timer: 3000,
+        })
+
+        Toast.fire({
+            icon: 'error',
+            text: 'Has eliminado este servicio del carrito'
+        })
+    }
+
+    const btnComprar = () => {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Tu compra ha sido realizada',
+            text: 'A tu correo llegará el detalle de tu factura',
+            showConfirmButton: false,
+            timer: 3000
+        })
+        
+        setTimeout(() => {
+            setOrdenes([])
+        }, 3000);
     }
 
     useEffect(() => {
@@ -87,7 +114,7 @@ const Carrito = () => {
                         <h3>Total:</h3>
                         <h3>{total}</h3>
                     </div>
-                    <button className='btn btn-logout mx-2 mb-2 mx-md-1'>Comprar!</button>
+                    <button onClick={btnComprar} className='btn btn-logout mx-2 mb-2 mx-md-1'>Comprar!</button>
                 </div>
             </div>
         </>
