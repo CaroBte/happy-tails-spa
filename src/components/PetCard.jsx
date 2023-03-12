@@ -5,7 +5,7 @@ const PetCard = ({ m }) => {
 
     const { setMascotaActual } = useContext(usuario.usuariosContext)
 
-    const { nombre, imagen, edad, especie } = m
+    const { petNombre, imagen, edad, especie } = m
 
 
     const handleEdit = () => {
@@ -16,9 +16,9 @@ const PetCard = ({ m }) => {
     return (
         <>
             <div className="pet-card d-flex m-1 rounded-3 w-100 ">
-                <img className='rounded-circle p-1' src={imagen} width={"25%"} alt={nombre} />
+                <img className='rounded-circle p-1 object-fit-cover' src={imagen} width={"140px"} height={"140px"} alt={petNombre} />
                 <div className="pet-info d-flex flex-column justify-content-center mx-3 p-1">
-                    <p className='m-0'>{nombre}</p>
+                    <p className='m-0'>{petNombre}</p>
                     <p className='m-0'>Especie: {especie}</p>
                     <p className='m-0'>Edad: {edad}</p>
                 </div>

@@ -7,7 +7,7 @@ export const UsuariosProvider = ({ children }) => {
 
     const [usuarioLogin, setUsuarioLogin] = useState()
     const [usuarioActual, setUsuarioActual] = useState()
-    const [mascotas, setMascotas] = useState()
+    const [mascotas, setMascotas] = useState([])
     const [mascotaActual, setMascotaActual] = useState()
 
     onAuthStateChanged(authAPI.auth, (_user) => {
@@ -35,6 +35,19 @@ export const UsuariosProvider = ({ children }) => {
         }
     }
 
+    /*----------------------CRUD MASCOTAS-------------------------------  */
+
+    const enviarMascota = async (_id, mascota) => {
+        try {
+
+            await mascotasAPI.enviarMascota(_id, mascota)
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
     const traerMascotas = async (id) => {
         try {
             const mascotasFirebase = await mascotasAPI.traerMascotas(id)
@@ -49,7 +62,8 @@ export const UsuariosProvider = ({ children }) => {
         usuarioActual, setUsuarioActual,
         traerUsuario,
         traerMascotas, mascotas,
-        mascotaActual, setMascotaActual
+        mascotaActual, setMascotaActual,
+        enviarMascota
     }
 
     return (

@@ -11,7 +11,7 @@ const Usuario = () => {
 
     useEffect(() => {
         traerMascotas(usuarioActual.id)
-    }, [])
+    }, [mascotas])
 
     const handleSubmit = async (values) => {
         await enviarUsuario(values, usuarioActual.id)
