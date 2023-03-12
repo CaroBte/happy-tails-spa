@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { usuario } from '../context'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import Swal from 'sweetalert2'
 
 
 const PetInput = () => {
 
+    const { enviarMascota, usuarioActual } = useContext(usuario.usuariosContext)
+
     const handleSubmit = (values) => {
         console.log(values, "Values de la mascota");
+
+        enviarMascota(usuarioActual.id, values)
 
         Swal.fire({
             position: 'center',

@@ -1,4 +1,4 @@
-import { collection, doc, getDoc, setDoc, getDocs } from "firebase/firestore";
+import { collection, doc, getDoc, setDoc, getDocs, addDoc } from "firebase/firestore";
 import { db } from "./firebase"
 
 export const traerMascotas = async (_id) => {
@@ -12,3 +12,11 @@ export const traerMascotas = async (_id) => {
     })
     return mascotas
 }
+
+export const enviarMascota = async (_id, mascota) => { 
+    const mascotasCollecion = collection(db, `usuarios/${_id}/mascotas`)
+
+    await addDoc(mascotasCollecion, mascota)
+}
+
+/* await setDoc(doc(mascotasCollecion, mascota.id)) <------- ESTO SIRVE PARA EL UPDATE */ 
