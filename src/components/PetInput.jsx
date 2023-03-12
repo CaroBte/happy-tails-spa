@@ -13,10 +13,9 @@ const PetInput = () => {
             icon: 'success',
             title: 'Tu mascota ha sido agregada 🐶😸',
             showConfirmButton: false,
-            timer: 2000
+            timerProgressBar: true,
+            timer: 3000
         })
-
-
 
     }
 
@@ -27,7 +26,7 @@ const PetInput = () => {
                     Registrar Nueva Mascota
                 </button>
             </div>
-            
+
             <div className="collapse w-100 my-2" id="collapseExample">
 
                 <Formik
@@ -68,12 +67,9 @@ const PetInput = () => {
 
                         // Validate Edad
                         if (!values.edad) {
-
-                            errores.edad = "Por favor ingresa la edad"
-
-                        } else if (!/^[0-9]+$/.test(values.edad)) {
-                            errores.edad = "Por favor solo ingresa números sin espacios"
+                            errores.edad = "Por favor ingresa la edad en meses o años"
                         }
+
                         return errores
                     }}
 
@@ -89,7 +85,7 @@ const PetInput = () => {
                             <label className='d-flex flex-column form-label title '>Nombre de tu Mascota
                                 <Field className='border-0 border-bottom input-login' name="petNombre" type="text" />
                                 <ErrorMessage name='petNombre' component={() => (
-                                    <div>
+                                    <div className='text-danger'>
                                         {errors.petNombre}
                                     </div>
                                 )} />
@@ -103,7 +99,7 @@ const PetInput = () => {
                                     <option value="Gato">Gato</option>
                                 </Field>
                                 <ErrorMessage name='especie' component={() => (
-                                    <div>
+                                    <div className='text-danger'>
                                         {errors.especie}
                                     </div>
                                 )} />
@@ -112,7 +108,7 @@ const PetInput = () => {
                             <label className='d-flex flex-column form-label title'>Imagen
                                 <Field className='border-0 border-bottom input-login' name="imagen" type="text" />
                                 <ErrorMessage name='imagen' component={() => (
-                                    <div>
+                                    <div className='text-danger'>
                                         {errors.imagen}
                                     </div>
                                 )} />
@@ -121,7 +117,7 @@ const PetInput = () => {
                             <label className='d-flex flex-column form-label title '>Edad
                                 <Field className='border-0 border-bottom input-login' name="edad" type="text" />
                                 <ErrorMessage name='edad' component={() => (
-                                    <div>
+                                    <div className='text-danger'>
                                         {errors.edad}
                                     </div>
                                 )} />

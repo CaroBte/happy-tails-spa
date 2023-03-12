@@ -1,14 +1,17 @@
-import React, { useContext } from 'react'
-import PetCard from './PetCard'
-import PetInput from './PetInput'
+import React, { useContext, useEffect } from 'react'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import { authAPI } from '../api/'
 import { usuario } from '../context'
 import Swal from 'sweetalert2'
+import PetsContainer from './PetsContainer'
 
 const Usuario = () => {
 
-    const { usuarioActual, enviarUsuario, traerUsuario } = useContext(usuario.usuariosContext)
+    const { usuarioActual, enviarUsuario, traerUsuario, traerMascotas, mascotas } = useContext(usuario.usuariosContext)
+
+    useEffect(() => {
+        traerMascotas(usuarioActual.id)
+    }, [])
 
     const handleSubmit = async (values) => {
         await enviarUsuario(values, usuarioActual.id)
@@ -19,7 +22,8 @@ const Usuario = () => {
             icon: 'success',
             title: 'Datos actualizados',
             showConfirmButton: false,
-            timer: 2000
+            timerProgressBar: true,
+            timer: 3000
         })
     }
 
@@ -96,12 +100,11 @@ const Usuario = () => {
                                 errores.telefono = "Por favor ingresa tu número de contacto"
 
                             } else if (values.telefono.length < 7 || values.telefono.length > 10) {
-                                errores.telefono = "Ingresa un teléfonos entre 7 y 10 dígitos"
+                                errores.telefono = "Ingresa un teléfono entre 7 y 10 dígitos"
 
                             } else if (!/^[0-9]+$/.test(values.telefono)) {
 
                                 errores.telefono = "Por favor solo ingresa números sin espacios"
-
                             }
 
                             // Validate Dirección
@@ -123,7 +126,7 @@ const Usuario = () => {
                                     <Field className='border-0 border-bottom input-login' name='nombre' type="text" />
                                     <i className="fa-solid fa-pencil opacity-25"></i>
                                     <ErrorMessage name='nombre' component={() => (
-                                        <div>
+                                        <div className='text-danger'>
                                             {errors.nombre}
                                         </div>
                                     )} />
@@ -134,7 +137,7 @@ const Usuario = () => {
                                     <Field className='border-0 border-bottom input-login' name='correo' type="email" />
                                     <i className="fa-solid fa-pencil opacity-25"></i>
                                     <ErrorMessage name='correo' component={() => (
-                                        <div>
+                                        <div className='text-danger'>
                                             {errors.correo}
                                         </div>
                                     )} />
@@ -144,7 +147,7 @@ const Usuario = () => {
                                     <Field className='border-0 border-bottom input-login' name='imagen' type="text" />
                                     <i className="fa-solid fa-pencil opacity-25"></i>
                                     <ErrorMessage name='imagen' component={() => (
-                                        <div>
+                                        <div className='text-danger'>
                                             {errors.imagen}
                                         </div>
                                     )} />
@@ -154,7 +157,7 @@ const Usuario = () => {
                                     <Field className='border-0 border-bottom input-login' name='telefono' type="tel" />
                                     <i className="fa-solid fa-pencil opacity-25"></i>
                                     <ErrorMessage name='telefono' component={() => (
-                                        <div>
+                                        <div className='text-danger'>
                                             {errors.telefono}
                                         </div>
                                     )} />
@@ -164,7 +167,7 @@ const Usuario = () => {
                                     <Field className='border-0 border-bottom input-login' name='direccion' type="text" />
                                     <i className="fa-solid fa-pencil opacity-25"></i>
                                     <ErrorMessage name='direccion' component={() => (
-                                        <div>
+                                        <div className='text-danger'>
                                             {errors.direccion}
                                         </div>
                                     )} />
@@ -189,11 +192,7 @@ const Usuario = () => {
 
                 <div className="my-pets px-4 mb-5 col-md-4 d-flex flex-column justify-content-center align-items-center">
                     <p className='title'>Mis Mascotas</p>
-
-                    <PetCard />
-                    <PetCard />
-
-                    <PetInput />
+                    <PetsContainer mascotas={mascotas} />
                 </div>
 
             </div>

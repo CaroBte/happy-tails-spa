@@ -1,16 +1,28 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { usuario } from '../context'
 
-const PetCard = () => {
+const PetCard = ({ m }) => {
+
+    const { setMascotaActual } = useContext(usuario.usuariosContext)
+
+    const { nombre, imagen, edad, especie } = m
+
+
+    const handleEdit = () => {
+        console.log("probando...");
+        /*  setMascotaActual("ejemplo") <- error, congela la página */
+    }
+
     return (
         <>
             <div className="pet-card d-flex m-1 rounded-3 w-100 ">
-                <img className='rounded-circle p-1' src="https://i.pinimg.com/564x/a4/8a/45/a48a45b038991a7bb43fa803d9a9e601.jpg" width={"25%"} alt="Your Pet Reference" />
+                <img className='rounded-circle p-1' src={imagen} width={"25%"} alt={nombre} />
                 <div className="pet-info d-flex flex-column justify-content-center mx-3 p-1">
-                    <p className='m-0'>Nombre Mascota</p>
-                    <p className='m-0'>Especie: Gato/Perro</p>
-                    <p className='m-0'>Edad: x años</p>
+                    <p className='m-0'>{nombre}</p>
+                    <p className='m-0'>Especie: {especie}</p>
+                    <p className='m-0'>Edad: {edad}</p>
                 </div>
-                <i className="fa-solid fa-pencil opacity-25"></i>
+                <i onClick={() => handleEdit()} role='button' data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" className="fa-solid fa-pencil opacity-25"></i>
             </div>
         </>
     )

@@ -1,12 +1,14 @@
 import { createContext, useState } from "react";
 import { onAuthStateChanged } from 'firebase/auth'
-import { usuariosAPI, authAPI } from '../api/'
+import { usuariosAPI, authAPI, mascotasAPI } from '../api/'
 
 export const usuariosContext = createContext()
 export const UsuariosProvider = ({ children }) => {
 
     const [usuarioLogin, setUsuarioLogin] = useState()
     const [usuarioActual, setUsuarioActual] = useState()
+    const [mascotas, setMascotas] = useState()
+    const [mascotaActual, setMascotaActual] = useState()
 
     onAuthStateChanged(authAPI.auth, (_user) => {
         if (_user) {
@@ -33,10 +35,21 @@ export const UsuariosProvider = ({ children }) => {
         }
     }
 
+    const traerMascotas = async (id) => {
+        try {
+            const mascotasFirebase = await mascotasAPI.traerMascotas(id)
+            setMascotas(mascotasFirebase)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     const variables = {
         enviarUsuario, usuarioLogin,
         usuarioActual, setUsuarioActual,
-        traerUsuario
+        traerUsuario,
+        traerMascotas, mascotas,
+        mascotaActual, setMascotaActual
     }
 
     return (
