@@ -47,7 +47,6 @@ export const UsuariosProvider = ({ children }) => {
         }
     }
 
-
     const traerMascotas = async (id) => {
         try {
             const mascotasFirebase = await mascotasAPI.traerMascotas(id)
@@ -57,13 +56,22 @@ export const UsuariosProvider = ({ children }) => {
         }
     }
 
+    /*     const eliminarMascota = async (idU, idMascota) => {
+            try {
+                await mascotasAPI.eliminarMascota(idU, idMascota)
+                await mascotasAPI.traerMascotas(idU)
+            } catch (error) {
+                console.log(error);
+            }
+        } */
+
     const variables = {
         enviarUsuario, usuarioLogin,
         usuarioActual, setUsuarioActual,
         traerUsuario,
         traerMascotas, mascotas,
         mascotaActual, setMascotaActual,
-        enviarMascota
+        enviarMascota, /* eliminarMascota */
     }
 
     return (

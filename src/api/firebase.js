@@ -6,12 +6,12 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyADoxXDSOeEFGG3faespn_p-VriUDIcN98",
-    authDomain: "happy-tails-spa.firebaseapp.com",
-    projectId: "happy-tails-spa",
-    storageBucket: "happy-tails-spa.appspot.com",
-    messagingSenderId: "528464777939",
-    appId: "1:528464777939:web:cca8114acd5eba6e8a7a26"
+    apiKey: "AIzaSyDvrYTFBoA3syuutm4ZmydSaQzVuoQDFD4",
+    authDomain: "happy-tails-spa-web.firebaseapp.com",
+    projectId: "happy-tails-spa-web",
+    storageBucket: "happy-tails-spa-web.appspot.com",
+    messagingSenderId: "199288013474",
+    appId: "1:199288013474:web:fa248b292883b75a168dfb"
 };
 
 // Initialize Firebase
