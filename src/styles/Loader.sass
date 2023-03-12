@@ -1,0 +1,44 @@
+.loader
+    width: 100px
+    height: 100px
+    box-sizing: border-box
+    border-radius: 50%
+    border-top: 5px solid #370959
+    position: relative
+    animation: load 2s linear infinite
+
+    &::before,&::after
+        content: ''
+        width: 100px
+        height: 100px
+        position: absolute
+        left: 0
+        top: 0
+        box-sizing: border-box
+        border-radius: 50%
+
+    &::before
+        border-top: 5px solid #4E36B8
+        transform: rotate(120deg)
+
+    &::after
+        border-top: 5px solid #B60478
+        transform: rotate(240deg)
+
+    & span
+        position: absolute
+        font-size: 2rem
+        width: 100px
+        height: 100px
+        color: #924AC6
+        text-align: center
+        line-height: 100px
+        animation: a2 2s linear infinite
+
+@keyframes load
+  to 
+    transform: rotate(360deg)
+
+@keyframes a2
+  to 
+    transform: rotate(-360deg)

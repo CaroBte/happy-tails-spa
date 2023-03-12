@@ -5,7 +5,7 @@ import Swal from 'sweetalert2'
 
 const Carrito = () => {
 
-    const { setOrdenes, ordenes, setTotal, total } = useContext(servicios.serviciosContext)
+    const { setOrdenes, ordenes, setTotal, total, isLoading } = useContext(servicios.serviciosContext)
 
     let subtotalesOrdenes = []
 
@@ -61,7 +61,7 @@ const Carrito = () => {
             showConfirmButton: false,
             timer: 3000
         })
-        
+
         setTimeout(() => {
             setOrdenes([])
         }, 3000);
@@ -87,6 +87,9 @@ const Carrito = () => {
 
     return (
         <>
+            {
+                isLoading && <div className='loader'><span><i className="fa-solid fa-paw"></i></span></div>
+            }
             <div className='screen row justify-content-end gx-0'>
                 <div className="d-flex align-items-baseline px-4 mt-4 col-md-9">
                     <i className="user-icon h3 fa-solid fa-cart-shopping"></i>

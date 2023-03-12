@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import { router } from "./Router";
 import { servicios, usuario } from './context';
-
+import './styles/Loader.sass'
 import "./styles/styles.sass"
 
 function App() {

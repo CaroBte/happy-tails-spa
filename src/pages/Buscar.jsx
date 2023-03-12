@@ -1,12 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Servicios } from '../components';
 import { serviciosContext } from '../context/servicios'
-
 import "../styles/BuscarNosotros.sass"
 
 const Buscar = () => {
 
-    const { traerServicios, servicios } = useContext(serviciosContext)
+    const { traerServicios, servicios, isLoading } = useContext(serviciosContext)
 
     const [serviciosLocal, setServiciosLocal] = useState(null)
     const [filtrado, setFiltrado] = useState()
@@ -33,10 +32,13 @@ const Buscar = () => {
         setFiltrado(servicioFiltrado)
     }
 
-    
+
 
     return (
         <>
+            {
+                isLoading && <div className='loader'><span><i className="fa-solid fa-paw"></i></span></div>
+            }
             <div className="screen row justify-content-end gx-0">
                 <div className='d-flex align-items-baseline px-4 mt-4 col-md-9'>
                     <i className="user-icon h3 fa-solid fa-magnifying-glass"></i>
