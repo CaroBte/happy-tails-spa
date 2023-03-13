@@ -40,19 +40,34 @@ const Carrito = () => {
     }
 
     const eliminarOrden = (_id) => {
-        let ordenesFiltradas = ordenes.filter((o) => o.id !== _id)
-        setOrdenes(ordenesFiltradas)
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'bottom',
-            showConfirmButton: false,
-            timer: 3000,
+        Swal.fire({
+            text: '¿Estás seguro que deseas eliminar este servicio?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#b60478',
+            cancelButtonColor: '#4e36b8',
+            confirmButtonText: 'Sí, eliminar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                let ordenesFiltradas = ordenes.filter((o) => o.id !== _id)
+                setOrdenes(ordenesFiltradas)
+
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'bottom',
+                    showConfirmButton: false,
+                    timer: 3000,
+                })
+
+                Toast.fire({
+                    icon: 'error',
+                    text: 'Has eliminado este servicio del carrito'
+                })
+            }
         })
 
-        Toast.fire({
-            icon: 'error',
-            text: 'Has eliminado este servicio del carrito'
-        })
+
     }
 
     let navigate = useNavigate()
@@ -82,7 +97,17 @@ const Carrito = () => {
         }
 
         else {
-            navigate("/perfil")
+            Swal.fire({
+                text: "Para realizar la compra, debes iniciar sesión",
+                icon: 'info',
+                confirmButtonColor: '#b60478',
+                confirmButtonText: 'Iniciar sesión'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate("/perfil")
+                }
+            })
+
         }
     }
 
