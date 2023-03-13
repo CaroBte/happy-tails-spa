@@ -1,15 +1,23 @@
 import PetCard from './PetCard'
 import PetInput from './PetInput'
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { usuario } from '../context'
 
 const PetsContainer = ({ mascotas }) => {
 
-    /*   const { eliminarMascota, usuarioActual } = useContext(usuario.usuariosContext)
-  
-      const handleEliminar = (_idM) => {
-          eliminarMascota(usuarioActual.id, _idM)
-      } */
+    const { eliminarMascota, usuarioActual, traerMascotas } = useContext(usuario.usuariosContext)
+
+    const [mascotaActual, setMascotaActual] = useState()
+
+    const handleEliminar = async (_idM) => {
+        await eliminarMascota(usuarioActual.id, _idM)
+        await traerMascotas(usuarioActual.id)
+    }
+
+    const handleEditar = async (_mascota) => {
+        console.log("seteando con:", _mascota);
+        setMascotaActual(_mascota)
+    }
 
     return (
         <>
@@ -17,13 +25,15 @@ const PetsContainer = ({ mascotas }) => {
                 return (
                     <PetCard key={m.id}
                         m={m}
-                        /* handleEliminar={handleEliminar} */ />)
+                        handleEliminar={handleEliminar}
+                        handleEditar={handleEditar} />)
             })) :
                 (<div className="my-pets px-4 mb-5 d-flex flex-column justify-content-center align-items-center">
                     <p className='fw-semibold'>Aún no tienes Mascotas Registradas</p>
                 </div>)}
 
-            <PetInput />
+            <PetInput mascotaActual={mascotaActual}
+            />
         </>
     )
 }

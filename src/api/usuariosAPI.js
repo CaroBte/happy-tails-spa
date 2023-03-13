@@ -1,4 +1,4 @@
-import { collection, doc, getDoc, setDoc, getDocs } from "firebase/firestore";
+import { collection, doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "./firebase"
 
 const usuariosCollecion = collection(db, "usuarios")

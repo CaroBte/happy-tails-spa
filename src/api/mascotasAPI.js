@@ -13,14 +13,17 @@ export const traerMascotas = async (_id) => {
     return mascotas
 }
 
-export const enviarMascota = async (_id, mascota) => {
-    const mascotasCollecion = collection(db, `usuarios/${_id}/mascotas`)
+export const crearMascota = async (_idU, mascota) => {
+    const mascotasCollecion = collection(db, `usuarios/${_idU}/mascotas`)
     await addDoc(mascotasCollecion, mascota)
 }
 
-/* await setDoc(doc(mascotasCollecion, mascota.id)) <------- ESTO SIRVE PARA EL UPDATE */
+export const actualizarMascota = async (_idU, _mascota) => {
+    const mascotasCollecion = collection(db, `usuarios/${_idU}/mascotas`)
+    await setDoc(doc(mascotasCollecion, _mascota.id), _mascota)
+}
 
-/* export const eliminarMascota = async (_id, _idMascota) => {
-    const mascotasCollecion = collection(db, `usuarios/${_id}/mascotas/`)
-    await deleteDoc(mascotasCollecion, _idMascota)
-} */
+export const eliminarMascota = async (_idU, _idM) => {
+    const mascotasCollecion = collection(db, `usuarios/${_idU}/mascotas/`)
+    await deleteDoc(doc(mascotasCollecion, _idM))
+}  

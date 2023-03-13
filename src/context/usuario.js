@@ -37,16 +37,6 @@ export const UsuariosProvider = ({ children }) => {
 
     /*----------------------CRUD MASCOTAS-------------------------------  */
 
-    const enviarMascota = async (_id, mascota) => {
-        try {
-
-            await mascotasAPI.enviarMascota(_id, mascota)
-
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
     const traerMascotas = async (id) => {
         try {
             const mascotasFirebase = await mascotasAPI.traerMascotas(id)
@@ -56,14 +46,25 @@ export const UsuariosProvider = ({ children }) => {
         }
     }
 
-    /*     const eliminarMascota = async (idU, idMascota) => {
-            try {
-                await mascotasAPI.eliminarMascota(idU, idMascota)
-                await mascotasAPI.traerMascotas(idU)
-            } catch (error) {
-                console.log(error);
+    const enviarMascota = async (_idU, mascota) => {
+        try {
+            if (mascota.id) {
+                await mascotasAPI.actualizarMascota(_idU, mascota)
+            } else {
+                await mascotasAPI.crearMascota(_idU, mascota)
             }
-        } */
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const eliminarMascota = async (_idU, _idMascota) => {
+        try {
+            await mascotasAPI.eliminarMascota(_idU, _idMascota)
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     const variables = {
         enviarUsuario, usuarioLogin,
@@ -71,7 +72,7 @@ export const UsuariosProvider = ({ children }) => {
         traerUsuario,
         traerMascotas, mascotas,
         mascotaActual, setMascotaActual,
-        enviarMascota, /* eliminarMascota */
+        enviarMascota, eliminarMascota,
     }
 
     return (

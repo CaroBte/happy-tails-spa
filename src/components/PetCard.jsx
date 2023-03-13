@@ -1,12 +1,8 @@
 import React from 'react'
 
-const PetCard = ({ m, /* handleEliminar */ }) => {
+const PetCard = ({ m, handleEliminar, handleEditar }) => {
 
     const { petNombre, imagen, edad, especie, id } = m
-
-    const handleEditar = () => {
-        console.log("probando...");
-    }
 
     return (
         <>
@@ -19,7 +15,7 @@ const PetCard = ({ m, /* handleEliminar */ }) => {
                 </div>
                 <div className='d-flex align-items-center gap-4'>
                     <i onClick={() => handleEliminar(id)} className="fa-solid fa-trash text-danger opacity-50" role='button' ></i>
-                    <i onClick={() => handleEditar()} role='button' data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" className="fa-solid fa-pencil opacity-25"></i>
+                    <i onClick={() => handleEditar(m)} role='button' data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" className="fa-solid fa-pencil opacity-25"></i>
                 </div>
             </div>
         </>

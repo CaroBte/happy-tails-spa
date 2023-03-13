@@ -1,17 +1,16 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { usuario } from '../context'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import Swal from 'sweetalert2'
 
+const PetInput = ({ mascotaActual }) => {
 
-const PetInput = () => {
+    const { enviarMascota, usuarioActual, traerMascotas } = useContext(usuario.usuariosContext)
 
-    const { enviarMascota, usuarioActual } = useContext(usuario.usuariosContext)
-
-    const handleSubmit = (values) => {
+    const handleSubmit = async (values) => {
         console.log(values, "Values de la mascota");
-
-        enviarMascota(usuarioActual.id, values)
+        await enviarMascota(usuarioActual.id, values)
+        await traerMascotas(usuarioActual.id)
 
         Swal.fire({
             position: 'center',
@@ -21,8 +20,25 @@ const PetInput = () => {
             timerProgressBar: true,
             timer: 3000
         })
-
     }
+
+    if (mascotaActual === undefined) {
+        mascotaActual = {
+            petNombre: "",
+            especie: "",
+            imagen: "",
+            edad: ""
+        }
+    } else {
+        mascotaActual = {
+            petNombre: mascotaActual.petNombre,
+            especie: mascotaActual.especie,
+            imagen: mascotaActual.imagen,
+            edad: mascotaActual.edad,
+            id: mascotaActual.id
+        }
+    }
+    console.log("mascota desde petInput:", mascotaActual);
 
     return (
         <>
@@ -36,10 +52,11 @@ const PetInput = () => {
 
                 <Formik
                     initialValues={{
-                        petNombre: "",
-                        especie: "",
-                        imagen: "",
-                        edad: ""
+                        petNombre: `${mascotaActual.petNombre}`,
+                        especie: `${mascotaActual.especie}`,
+                        imagen: `${mascotaActual.imagen}`,
+                        edad: `${mascotaActual.edad}`,
+                        id: `${mascotaActual.id}`
                     }}
 
                     /* VALIDATIONS PETS */
