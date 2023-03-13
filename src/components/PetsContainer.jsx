@@ -15,7 +15,7 @@ const PetsContainer = ({ mascotas }) => {
     }
 
     const handleEditar = async (_mascota) => {
-        console.log("seteando con:", _mascota);
+       /*  console.log("seteando con:", _mascota) */;
         setMascotaActual(_mascota)
     }
 

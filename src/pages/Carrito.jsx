@@ -78,9 +78,7 @@ const Carrito = () => {
 
         if (usuarioActual) {
 
-            console.log(factura);
             await crearFactura(usuarioActual.id, factura)
-            /* enviar factura al firebase con el usuarioActual.id */
 
             Swal.fire({
                 position: 'center',

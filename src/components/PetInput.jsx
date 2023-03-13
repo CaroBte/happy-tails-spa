@@ -8,7 +8,7 @@ const PetInput = ({ mascotaActual }) => {
     const { enviarMascota, usuarioActual, traerMascotas } = useContext(usuario.usuariosContext)
 
     const handleSubmit = async (values) => {
-        console.log(values, "Values de la mascota");
+        /*   console.log(values, "Values de la mascota"); */
         await enviarMascota(usuarioActual.id, values)
         await traerMascotas(usuarioActual.id)
 
@@ -38,7 +38,7 @@ const PetInput = ({ mascotaActual }) => {
             id: mascotaActual.id
         }
     }
-    console.log("mascota desde petInput:", mascotaActual);
+    /* console.log("mascota desde petInput:", mascotaActual); */
 
     return (
         <>
