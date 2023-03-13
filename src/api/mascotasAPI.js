@@ -1,4 +1,4 @@
-import { collection, doc, getDoc, setDoc, getDocs, addDoc, deleteDoc } from "firebase/firestore";
+import { collection, doc, setDoc, getDocs, addDoc, deleteDoc } from "firebase/firestore";
 import { db } from "./firebase"
 
 export const traerMascotas = async (_id) => {

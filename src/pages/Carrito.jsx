@@ -1,11 +1,14 @@
 import React, { useContext, useEffect } from 'react'
 import { CarritoVacio, CarritoCard } from '../components'
-import { servicios } from '../context'
+import { servicios, usuario } from '../context'
 import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom'
 
 const Carrito = () => {
 
     const { setOrdenes, ordenes, setTotal, total, isLoading } = useContext(servicios.serviciosContext)
+
+    const { usuarioActual, crearFactura } = useContext(usuario.usuariosContext)
 
     let subtotalesOrdenes = []
 
@@ -52,19 +55,35 @@ const Carrito = () => {
         })
     }
 
-    const btnComprar = () => {
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Tu compra ha sido realizada',
-            text: 'A tu correo llegará el detalle de tu factura',
-            showConfirmButton: false,
-            timer: 3000
-        })
+    let navigate = useNavigate()
 
-        setTimeout(() => {
-            setOrdenes([])
-        }, 3000);
+    const handleComprar = async () => {
+
+        const factura = { ordenes, total }
+
+        if (usuarioActual) {
+
+            console.log(factura);
+            await crearFactura(usuarioActual.id, factura)
+            /* enviar factura al firebase con el usuarioActual.id */
+
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Tu compra ha sido realizada',
+                text: 'A tu correo llegará el detalle de tu factura',
+                showConfirmButton: false,
+                timer: 3000
+            })
+
+            setTimeout(() => {
+                setOrdenes([])
+            }, 3000)
+        }
+
+        else {
+            navigate("/perfil")
+        }
     }
 
     useEffect(() => {
@@ -117,7 +136,7 @@ const Carrito = () => {
                         <h3>Total:</h3>
                         <h3>{total}</h3>
                     </div>
-                    <button onClick={btnComprar} className='btn btn-logout mx-2 mb-2 mx-md-1'>Comprar!</button>
+                    <button onClick={handleComprar} className='btn btn-logout mx-2 mb-2 mx-md-1'>Comprar!</button>
                 </div>
             </div>
         </>

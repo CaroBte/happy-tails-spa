@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 import { onAuthStateChanged } from 'firebase/auth'
-import { usuariosAPI, authAPI, mascotasAPI } from '../api/'
+import { usuariosAPI, authAPI, mascotasAPI, facturaAPI } from '../api/'
 
 export const usuariosContext = createContext()
 export const UsuariosProvider = ({ children }) => {
@@ -17,6 +17,8 @@ export const UsuariosProvider = ({ children }) => {
             setUsuarioActual(null)
         }
     })
+
+    /*----------------------USUARIOS-------------------------------  */
 
     const enviarUsuario = async (_usuario, id) => {
         try {
@@ -35,7 +37,7 @@ export const UsuariosProvider = ({ children }) => {
         }
     }
 
-    /*----------------------CRUD MASCOTAS-------------------------------  */
+    /*----------------------MASCOTAS-------------------------------  */
 
     const traerMascotas = async (id) => {
         try {
@@ -66,6 +68,18 @@ export const UsuariosProvider = ({ children }) => {
         }
     }
 
+    /*----------------------FACTURAS-------------------------------  */
+
+    const crearFactura = async (_idU, _factura) => {
+        try {
+            await facturaAPI.crearFactura(_idU, _factura)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    /*----------------------VARIABLES-------------------------------  */
+
     const variables = {
         enviarUsuario, usuarioLogin,
         usuarioActual, setUsuarioActual,
@@ -73,6 +87,7 @@ export const UsuariosProvider = ({ children }) => {
         traerMascotas, mascotas,
         mascotaActual, setMascotaActual,
         enviarMascota, eliminarMascota,
+        crearFactura
     }
 
     return (
