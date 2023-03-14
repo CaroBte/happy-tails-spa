@@ -7,8 +7,10 @@ const PetInput = ({ mascotaActual }) => {
 
     const { enviarMascota, usuarioActual, traerMascotas } = useContext(usuario.usuariosContext)
 
+    const [mascotaLocal, setMascotaLocal] = useState()
+
     const handleSubmit = async (values) => {
-          /* console.log(values, "Values de la mascota"); */
+        /* console.log(values, "Values de la mascota"); */
         await enviarMascota(usuarioActual.id, values)
         await traerMascotas(usuarioActual.id)
 
@@ -22,23 +24,21 @@ const PetInput = ({ mascotaActual }) => {
         })
     }
 
-    if (mascotaActual === undefined) {
-        mascotaActual = {
-            petNombre: "",
-            especie: "",
-            imagen: "",
-            edad: ""
-        }
-    } else {
-        mascotaActual = {
+    useEffect(() => {
+        mascotaActual ? (mascotaActual = {
             petNombre: mascotaActual.petNombre,
             especie: mascotaActual.especie,
             imagen: mascotaActual.imagen,
             edad: mascotaActual.edad,
-            // id: mascotaActual.id
-        }
-    }
-    /* console.log("mascota desde petInput:", mascotaActual); */
+        }) : (mascotaActual = {
+            petNombre: "",
+            especie: "",
+            imagen: "",
+            edad: ""
+        })
+    }, [mascotaActual])
+
+    console.log("mascota desde petInput:", mascotaActual);
 
     return (
         <>
