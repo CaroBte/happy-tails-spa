@@ -50,7 +50,7 @@ const Usuario = () => {
                     </div>
 
                     <div className=" d-flex my-3">
-                        <img className='m-auto rounded-circle image-profile ' src={usuarioActual.imagen} width={"20%"} alt="User" />
+                        <img className='m-auto rounded-circle object-fit-cover image-profile ' src={usuarioActual.imagen} width={"140px"} height={"140px"} alt="User" />
                     </div>
 
                     <Formik
