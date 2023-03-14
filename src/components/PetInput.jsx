@@ -7,38 +7,32 @@ const PetInput = ({ mascotaActual }) => {
 
     const { enviarMascota, usuarioActual, traerMascotas } = useContext(usuario.usuariosContext)
 
-    const [mascotaLocal, setMascotaLocal] = useState()
-
     const handleSubmit = async (values) => {
-        /* console.log(values, "Values de la mascota"); */
         await enviarMascota(usuarioActual.id, values)
         await traerMascotas(usuarioActual.id)
 
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Tu mascota ha sido agregada 🐶😸',
-            showConfirmButton: false,
-            timerProgressBar: true,
-            timer: 3000
-        })
+        if (values.id) {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Tu mascota ha sido actualizada 🐶😸',
+                showConfirmButton: false,
+                timerProgressBar: true,
+                timer: 3000
+            })
+        } else {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Tu mascota ha sido agregada 🐶😸',
+                showConfirmButton: false,
+                timerProgressBar: true,
+                timer: 3000
+            })
+        }
     }
 
-    useEffect(() => {
-        mascotaActual ? (mascotaActual = {
-            petNombre: mascotaActual.petNombre,
-            especie: mascotaActual.especie,
-            imagen: mascotaActual.imagen,
-            edad: mascotaActual.edad,
-        }) : (mascotaActual = {
-            petNombre: "",
-            especie: "",
-            imagen: "",
-            edad: ""
-        })
-    }, [mascotaActual])
-
-    console.log("mascota desde petInput:", mascotaActual);
+    console.log("🐶🐱"); /* Bug#1🥇 */
 
     return (
         <>
@@ -56,7 +50,6 @@ const PetInput = ({ mascotaActual }) => {
                         especie: `${mascotaActual.especie}`,
                         imagen: `${mascotaActual.imagen}`,
                         edad: `${mascotaActual.edad}`,
-                        // id: `${mascotaActual.id}`
                     }}
 
                     /* VALIDATIONS PETS */
@@ -100,54 +93,67 @@ const PetInput = ({ mascotaActual }) => {
                         resetForm()
                     }}
                 >
-                    {({ errors }) => (
+                    {({ errors, setValues }) => {
 
-                        <Form className="form-login mx-4 ">
+                        useEffect(() => {
+                            setValues({
+                                petNombre: mascotaActual.petNombre !== "" ? mascotaActual.petNombre : "",
+                                especie: mascotaActual.especie !== "" ? mascotaActual.especie : "",
+                                imagen: mascotaActual.imagen !== "" ? mascotaActual.imagen : "",
+                                edad: mascotaActual.edad !== "" ? mascotaActual.edad : "",
+                                id: mascotaActual.id !== undefined ? mascotaActual.id : ""
+                            })
+                        }, [mascotaActual])
 
-                            <label className='d-flex flex-column form-label title '>Nombre de tu Mascota
-                                <Field className='border-0 border-bottom input-login' name="petNombre" type="text" />
-                                <ErrorMessage name='petNombre' component={() => (
-                                    <div className='text-danger'>
-                                        {errors.petNombre}
-                                    </div>
-                                )} />
-                            </label>
+                        return (
 
-                            <label className='d-flex flex-column form-label title '>Especie
-                                <Field name="especie" as="select" className='border-0 border-bottom input-login'>
+                            <Form className="form-login mx-4 ">
 
-                                    <option disabled value="">Selecciona</option>
-                                    <option value="Perro">Perro</option>
-                                    <option value="Gato">Gato</option>
-                                </Field>
-                                <ErrorMessage name='especie' component={() => (
-                                    <div className='text-danger'>
-                                        {errors.especie}
-                                    </div>
-                                )} />
-                            </label>
+                                <label className='d-flex flex-column form-label title '>Nombre de tu Mascota
+                                    <Field className='border-0 border-bottom input-login' name="petNombre" type="text" />
+                                    <ErrorMessage name='petNombre' component={() => (
+                                        <div className='text-danger'>
+                                            {errors.petNombre}
+                                        </div>
+                                    )} />
+                                </label>
 
-                            <label className='d-flex flex-column form-label title'>Imagen
-                                <Field className='border-0 border-bottom input-login' name="imagen" type="text" />
-                                <ErrorMessage name='imagen' component={() => (
-                                    <div className='text-danger'>
-                                        {errors.imagen}
-                                    </div>
-                                )} />
-                            </label>
+                                <label className='d-flex flex-column form-label title '>Especie
+                                    <Field name="especie" as="select" className='border-0 border-bottom input-login'>
 
-                            <label className='d-flex flex-column form-label title '>Edad
-                                <Field className='border-0 border-bottom input-login' name="edad" type="text" />
-                                <ErrorMessage name='edad' component={() => (
-                                    <div className='text-danger'>
-                                        {errors.edad}
-                                    </div>
-                                )} />
-                            </label>
+                                        <option disabled value="">Selecciona</option>
+                                        <option value="Perro">Perro</option>
+                                        <option value="Gato">Gato</option>
+                                    </Field>
+                                    <ErrorMessage name='especie' component={() => (
+                                        <div className='text-danger'>
+                                            {errors.especie}
+                                        </div>
+                                    )} />
+                                </label>
 
-                            <button className='btn btn-edit mx-4 mb-4' type='submit'>Registrar</button>
-                        </Form>
-                    )}
+                                <label className='d-flex flex-column form-label title'>Imagen
+                                    <Field className='border-0 border-bottom input-login' name="imagen" type="text" />
+                                    <ErrorMessage name='imagen' component={() => (
+                                        <div className='text-danger'>
+                                            {errors.imagen}
+                                        </div>
+                                    )} />
+                                </label>
+
+                                <label className='d-flex flex-column form-label title '>Edad
+                                    <Field className='border-0 border-bottom input-login' name="edad" type="text" />
+                                    <ErrorMessage name='edad' component={() => (
+                                        <div className='text-danger'>
+                                            {errors.edad}
+                                        </div>
+                                    )} />
+                                </label>
+
+                                <button className='btn btn-edit mx-4 mb-4' type='submit'>Enviar</button>
+                            </Form>
+                        )
+                    }}
 
                 </Formik>
 

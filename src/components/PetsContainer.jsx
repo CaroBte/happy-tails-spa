@@ -7,7 +7,12 @@ const PetsContainer = ({ mascotas }) => {
 
     const { eliminarMascota, usuarioActual, traerMascotas } = useContext(usuario.usuariosContext)
 
-    const [mascotaActual, setMascotaActual] = useState()
+    const [mascotaActual, setMascotaActual] = useState({
+        petNombre: "",
+        especie: "",
+        imagen: "",
+        edad: "",
+    })
 
     const handleEliminar = async (_idM) => {
         await eliminarMascota(usuarioActual.id, _idM)
@@ -15,7 +20,6 @@ const PetsContainer = ({ mascotas }) => {
     }
 
     const handleEditar = async (_mascota) => {
-       /*  console.log("seteando con:", _mascota) */;
         setMascotaActual(_mascota)
     }
 
