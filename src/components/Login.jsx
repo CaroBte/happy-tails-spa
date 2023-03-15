@@ -86,7 +86,7 @@ const Login = () => {
                     </div>
 
                     <div className=" d-flex my-3">
-                        <img className='m-auto image-profile' src="https://res.cloudinary.com/dxre2n1ja/image/upload/v1677613038/Happy%20Tails%20Spa%20App/Account-Avatar-Profile-PNG-Photo_nqxxzd.png" width={"20%"} alt="User Logo" />
+                        <i className="fa-solid fa-user m-auto image-profile h1 border border-dark-subtle border-4 rounded-circle p-3"></i>
                     </div>
 
                     {
