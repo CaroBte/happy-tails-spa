@@ -8,6 +8,7 @@ const PetsContainer = ({ mascotas }) => {
     const { eliminarMascota, usuarioActual, traerMascotas } = useContext(usuario.usuariosContext)
 
     const [mascotaActual, setMascotaActual] = useState({
+        id: null,
         petNombre: "",
         especie: "",
         imagen: "",
