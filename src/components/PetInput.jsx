@@ -3,13 +3,20 @@ import { usuario } from '../context'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import Swal from 'sweetalert2'
 
-const PetInput = ({ mascotaActual }) => {
+const PetInput = ({ mascotaActual, setMascotaActual }) => {
 
     const { enviarMascota, usuarioActual, traerMascotas } = useContext(usuario.usuariosContext)
 
     const handleSubmit = async (values) => {
         await enviarMascota(usuarioActual.id, values)
         await traerMascotas(usuarioActual.id)
+        setMascotaActual({
+            id: null,
+            petNombre: "",
+            especie: "",
+            imagen: "",
+            edad: "",
+        })
 
         if (values.id) {
             Swal.fire({
@@ -137,9 +144,8 @@ const PetInput = ({ mascotaActual }) => {
                         edad: `${mascotaActual.edad}`,
                     }}
                     validate={validador}
-                    onSubmit={(values, { resetForm }) => {
+                    onSubmit={(values) => {
                         handleSubmit(values)
-                        resetForm()
                     }}
                 >
                     {({ errors }) => renderForm({ errors })}

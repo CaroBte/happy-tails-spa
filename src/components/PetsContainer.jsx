@@ -38,6 +38,7 @@ const PetsContainer = ({ mascotas }) => {
                 </div>)}
 
             <PetInput mascotaActual={mascotaActual}
+                setMascotaActual={setMascotaActual}
             />
         </>
     )
