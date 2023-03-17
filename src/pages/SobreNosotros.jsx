@@ -18,18 +18,18 @@ const SobreNosotros = () => {
                             como para los mamás y papás gatunos y perrunos.
                         </h6>
 
-                        <h5 className='border-bottom border-danger-subtle'>
+                        <h5 className='mt-5 border-bottom border-danger-subtle'>
                             Cómo contactarnos
                         </h5>
                         <div>
                             <ul>
-                                <li><i className="fa-solid fa-location-dot h6"></i> Estamos ubicados en el <span className='fw-semibold'>Valle de Aburrá, Antioquia, Colombia</span></li>
-                                <li><i className="fa-solid fa-mobile-screen h6"></i> No dudes en llamarnos o escribirnos por nuestro Whatsapp <span className='fw-semibold'>+57 300 000 0000</span></li>
-                                <li><i className="fa-solid fa-envelope h6"></i> O también puedes escribirnos a nuestro correo <span className='fw-semibold'>happytailsspa@gmail.com</span></li>
+                                <li><i className="fa-solid fa-location-dot h4 mt-1"></i> Estamos ubicados en el <span className='fw-semibold'>Valle de Aburrá, Antioquia, Colombia</span></li>
+                                <li><i className="fa-solid fa-mobile-screen h4 mt-1"></i> No dudes en llamarnos o escribirnos por nuestro Whatsapp <span className='fw-semibold'>+57 300 000 0000</span></li>
+                                <li><i className="fa-solid fa-envelope h4 mt-1"></i> O también puedes escribirnos a nuestro correo <span className='fw-semibold'>happytailsspa@gmail.com</span></li>
                             </ul>
                         </div>
 
-                        <h5 className='border-bottom border-danger-subtle'>
+                        <h5 className='mt-5 border-bottom border-danger-subtle'>
                             Nuestros Clientes Felices
                         </h5>
                         <div className='div_imgs d-flex flex-row flex-wrap justify-content-center'>
@@ -41,7 +41,7 @@ const SobreNosotros = () => {
                             <img src="https://res.cloudinary.com/dxre2n1ja/image/upload/v1677883824/Happy%20Tails%20Spa%20App/como_puedo_mantener_a_mi_perro_siempre_limpio_15688_orig_wkpcls.jpg" alt="pet" />
                         </div>
 
-                        <h5 className='border-bottom border-danger-subtle'>
+                        <h5 className='border-bottom border-danger-subtle mt-5'>
                             Nuestros Valores
                         </h5>
                         <div>
@@ -54,9 +54,9 @@ const SobreNosotros = () => {
                             </ul>
                         </div>
 
-                        <h6 className='py-2 text-center'>
-                            Anímate y contáctanos para darle a tu mejor amigo peludo una experiencia
-                            relajante y llenito de amor!
+                        <h6 className='py-2 px-5 mt-5 text-center'>
+                            Contáctanos y dale a tu mejor amigo peludo una experiencia
+                            relajante y llenita de amor!
                         </h6>
                     </div>
 

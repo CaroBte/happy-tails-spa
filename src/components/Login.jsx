@@ -82,7 +82,7 @@ const Login = () => {
                 <div className='col-md-5'>
                     <div className='d-flex align-items-baseline mx-4 mt-5'>
                         <i className="user-icon h3 fa-solid fa-user"></i>
-                        <h5 className='mx-2'>Login</h5>
+                        <h5 className='mx-2'>Registro</h5>
                     </div>
 
                     <div className=" d-flex my-3">
@@ -183,8 +183,8 @@ const Login = () => {
 
                                         <h5 className='text-center my-4 register'>Regístrate para tener una mejor experiencia en nuestra Web</h5>
                                         <div className="d-flex">
-                                            <button type='submit' className="btn btn-login mx-2 mb-2 mx-md-2 ">Log In</button>
-                                            <button type="button" onClick={handleLogin} className="btn btn-logout mx-2 mb-2 mx-md-2 ">Log In with Google</button>
+                                            <button type='submit' className="btn btn-login mx-2 mb-2 mx-md-2 ">Registrarse</button>
+                                            <button type="button" onClick={handleLogin} className="btn btn-logout mx-2 mb-2 mx-md-2 ">Registrarse con <i className="fa-brands fa-google"></i>oogle</button>
                                         </div>
 
                                     </Form>
@@ -253,8 +253,8 @@ const Login = () => {
                                             </label>
 
                                             <div className="d-flex my-4">
-                                                <button type='submit' className="btn btn-login mx-2 mb-2 mx-md-2 ">Sign In</button>
-                                                <button type="button" onClick={handleLogin} className="btn btn-logout mx-2 mb-2 mx-md-2 ">Sign In with Google</button>
+                                                <button type='submit' className="btn btn-login mx-2 mb-2 mx-md-2 ">Ingresar</button>
+                                                <button type="button" onClick={handleLogin} className="btn btn-logout mx-2 mb-2 mx-md-2 ">Ingresar con <i className="fa-brands fa-google"></i>oogle</button>
                                             </div>
                                         </Form>
                                     )}

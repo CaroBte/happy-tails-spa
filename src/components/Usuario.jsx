@@ -173,16 +173,14 @@ const Usuario = () => {
                                     )} />
                                 </label>
 
-                                {/* <Field className="btn btn-primary" name="imagen" type="file" /> */}
-
                                 <div className="btns-profile-web">
                                     <button className="btn btn-login mx-2 mb-2 mx-md-1 " type='submit'>Guardar</button>
-                                    <button type="button" onClick={handleLogout} className="btn btn-logout mx-2 mb-2 mx-md-1 ">Log Out</button>
+                                    <button type="button" onClick={handleLogout} className="btn btn-logout mx-2 mb-2 mx-md-1 ">Cerrar Sesión<i className="mx-2 fa-solid fa-arrow-right-from-bracket"></i></button>
                                 </div>
                                 <div className='col-md-3'></div>
                                 <div className="col-md-7 btns-profile-mobile">
                                     <button className="btn btn-login mx-2 mb-2 mx-md-1 " type='submit'>Guardar</button>
-                                    <button type="button" onClick={handleLogout} className="btn btn-logout mx-2 mb-2 mx-md-1 ">Log Out</button>
+                                    <button type="button" onClick={handleLogout} className="btn btn-logout mx-2 mb-2 mx-md-1 ">Cerrar Sesión<i className="mx-2 fa-solid fa-arrow-right-from-bracket"></i></button>
                                 </div>
                             </Form>
                         )}

@@ -70,7 +70,7 @@ const MenuBurger = () => {
 
                   <Link to={"/"} className="nav-item mx-3">
                     <i className="fa-solid fa-house-chimney-user h3"></i>
-                    Home
+                    Inicio
                   </Link>
 
                   <Link to={"/carrito"} className="nav-item mx-3">
