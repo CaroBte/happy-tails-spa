@@ -184,7 +184,7 @@ const Login = () => {
                                         <h5 className='text-center my-4 register'>Regístrate para tener una mejor experiencia en nuestra Web</h5>
                                         <div className="d-flex">
                                             <button type='submit' className="btn btn-login mx-2 mb-2 mx-md-2 ">Registrarse</button>
-                                            <button type="button" onClick={handleLogin} className="btn btn-logout mx-2 mb-2 mx-md-2 ">Registrarse con <i className="fa-brands fa-google"></i>oogle</button>
+                                            <button type="button" onClick={handleLogin} className="btn btn-logout mx-2 mb-2 mx-md-2 ">Registrarse con Google</button>
                                         </div>
 
                                     </Form>
@@ -254,7 +254,7 @@ const Login = () => {
 
                                             <div className="d-flex my-4">
                                                 <button type='submit' className="btn btn-login mx-2 mb-2 mx-md-2 ">Ingresar</button>
-                                                <button type="button" onClick={handleLogin} className="btn btn-logout mx-2 mb-2 mx-md-2 ">Ingresar con <i className="fa-brands fa-google"></i>oogle</button>
+                                                <button type="button" onClick={handleLogin} className="btn btn-logout mx-2 mb-2 mx-md-2 ">Ingresar con Google</button>
                                             </div>
                                         </Form>
                                     )}

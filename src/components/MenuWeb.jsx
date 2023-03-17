@@ -7,17 +7,23 @@ const MenuWeb = () => {
 
     const { ordenes } = useContext(servicios.serviciosContext)
 
-    const body = document.querySelector("body")
-
+    
     const handleTema = () => {
-
+        
+        const body = document.querySelector("body")
         const navBurguer = document.querySelector('.menuBurger')
         const footer = document.querySelector('#footer')
+        const inputs = document.querySelectorAll(".input-login")
+
+        for (let index = 0; index <inputs.length; index++) {
+            const element = inputs[index];
+
+            element.classList.toggle('dark')
+        }
 
         body.classList.toggle('dark')
         navBurguer.classList.toggle('dark')
         footer.classList.toggle('dark')
-
     }
 
     return (

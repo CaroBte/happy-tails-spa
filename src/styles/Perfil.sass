@@ -15,7 +15,10 @@ $pink: #f19dd425
         left: 95%
         top: 50%
 
-input
+.input-login
+    background-color: transparent
+    &.dark
+        color: white
     &:focus
         outline: none
 
@@ -69,7 +72,7 @@ input
         border: 1px solid $fucsia
         background-color: white
 
-@media screen and (max-width: 768px)
+@media screen and (max-width: 767px)
 
     .btns-profile-web
         display: none
