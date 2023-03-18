@@ -7,7 +7,7 @@
 <ul>
 <li> <a href="#descripcion"> Descripción </a> </li>
 <li> <a href="#uso"> Uso </a> </li>
-<li> <a href="#tecn"> Tecnologías </a> </li>
+<li> <a href="#tech"> Tecnologías </a> </li>
 <li> <a href="#dev"> Desarrolladores </a> </li>
 </ul>
 <hr>
