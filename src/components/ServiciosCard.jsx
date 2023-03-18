@@ -29,12 +29,12 @@ const ServiciosCard = ({ id, img, nombre, precio, descripcion }) => {
                 position: 'bottom',
                 showConfirmButton: false,
                 timer: 3000,
-              })
-              
-              Toast.fire({
+            })
+
+            Toast.fire({
                 icon: 'warning',
                 text: 'Este servicio ya está en tu carrito'
-              })
+            })
 
         } else {
             const Toast = Swal.mixin({
@@ -55,23 +55,22 @@ const ServiciosCard = ({ id, img, nombre, precio, descripcion }) => {
     return (
         <div className="serv-card mb-3 shadow">
             <img className='w-100 mx-auto object-fit-cover img-card rounded-3' src={img} alt="baño de la mascota" />
-            <p>{nombre}</p>
-            <div className="serv-info">
+
+            <div className='d-flex flex-column serv-card-info p-4 '>
+                <p>{nombre}</p>
                 <p><span className='purple-text'>Precio: </span>${precio}</p>
                 <p>{descripcion}</p>
-            </div>
-
-            <div className="input-group d-flex flex-row">
-                <div className="input-group__mas-menos d-flex flex-row">
-                    <button className="btn py-0" onClick={suma}>+</button>
-                    <input disabled type="text" className="form-control" value={cantidad} />
-                    <button className="btn py-0" onClick={resta}>-</button>
-                </div>
-
-                <div className="input-group__add-cart">
-                    <button className='btn py-0' onClick={() => nuevaOrden(id)}>
-                        <p><i className="fa-solid fa-paw user-icon" ></i> Añadir al Carrito</p>
-                    </button>
+                <div className="input-group d-flex flex-row flex-wrap">
+                    <div className="input-group__mas-menos d-flex flex-row">
+                        <button className="btn py-0" onClick={suma}>+</button>
+                        <input disabled type="text" className="form-control" value={cantidad} />
+                        <button className="btn py-0" onClick={resta}>-</button>
+                    </div>
+                    <div className="input-group__add-cart">
+                        <button className='btn py-0' onClick={() => nuevaOrden(id)}>
+                            <p><i className="fa-solid fa-paw user-icon" ></i> Añadir al Carrito</p>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

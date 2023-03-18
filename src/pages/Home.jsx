@@ -51,7 +51,7 @@ const Home = () => {
             </div>
           </div>
           <h4 className='m-4 pb-3 border-bottom'><i className="fa-solid fa-bath user-icon"></i>  Nuestros Servicios</h4>
-          <div className='container-cards d-flex flex-wrap justify-content-around'>
+          <div className='container-cards'>
             <Servicios lista={servicios} />
           </div>
 

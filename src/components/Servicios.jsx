@@ -12,7 +12,7 @@ const Servicios = ({ lista }) => {
     )
 
     return (
-        <>
+        <div className='d-flex flex-row flex-wrap'>
             {
                 isLoading && <div className='loader'><span><i className="fa-solid fa-paw"></i></span></div>
             }
@@ -27,7 +27,7 @@ const Servicios = ({ lista }) => {
                             id={s.id} />
                     )
                 })}
-        </>
+        </div>
     )
 }
 
