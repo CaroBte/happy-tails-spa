@@ -10,12 +10,14 @@ const PetInput = ({ mascotaActual, setMascotaActual }) => {
     const handleSubmit = async (values) => {
         await enviarMascota(usuarioActual.id, values)
         await traerMascotas(usuarioActual.id)
-        setMascotaActual({
-            id: null,
-            petNombre: "",
-            especie: "",
-            imagen: "",
-            edad: "",
+        setMascotaActual(() => {
+            return {
+                id: null,
+                petNombre: "",
+                especie: "",
+                imagen: "",
+                edad: "",
+            }
         })
 
         if (values.id) {
@@ -89,7 +91,6 @@ const PetInput = ({ mascotaActual, setMascotaActual }) => {
 
                 <label className='d-flex flex-column form-label title '>Especie
                     <Field name="especie" as="select" className='border-0 border-bottom input-login'>
-
                         <option disabled value="">Selecciona</option>
                         <option value="Perro">Perro</option>
                         <option value="Gato">Gato</option>
@@ -144,10 +145,10 @@ const PetInput = ({ mascotaActual, setMascotaActual }) => {
                         edad: `${mascotaActual.edad}`,
                     }}
                     validate={validador}
-                    onSubmit={(values) => {
-                        handleSubmit(values)
-                    }}
-                >
+                    onSubmit={async (values, helpers) => {
+                        await handleSubmit(values)
+                        helpers.resetForm()
+                    }}>
                     {({ errors }) => renderForm({ errors })}
                 </Formik>
 
