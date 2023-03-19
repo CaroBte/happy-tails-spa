@@ -53,7 +53,7 @@ const ServiciosCard = ({ id, img, nombre, precio, descripcion }) => {
     }
 
     return (
-        <div className="serv-card rounded-4 mb-3 shadow">
+        <div className="serv-card rounded-4 mb-3 shadowCard">
             <img className='w-100 mx-auto object-fit-cover img-card rounded-4 p-2' src={img} alt="baño de la mascota" />
 
             <div className='d-flex flex-column serv-card-info p-3'>
