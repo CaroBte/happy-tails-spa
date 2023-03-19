@@ -53,10 +53,10 @@ const ServiciosCard = ({ id, img, nombre, precio, descripcion }) => {
     }
 
     return (
-        <div className="serv-card mb-3 shadow">
-            <img className='w-100 mx-auto object-fit-cover img-card rounded-3' src={img} alt="baño de la mascota" />
+        <div className="serv-card rounded-4 mb-3 shadow">
+            <img className='w-100 mx-auto object-fit-cover img-card rounded-4 p-2' src={img} alt="baño de la mascota" />
 
-            <div className='d-flex flex-column serv-card-info p-4 '>
+            <div className='d-flex flex-column serv-card-info p-3'>
                 <p>{nombre}</p>
                 <p><span className='purple-text'>Precio: </span>${precio}</p>
                 <p>{descripcion}</p>
