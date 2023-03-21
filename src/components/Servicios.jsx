@@ -12,7 +12,7 @@ const Servicios = ({ lista }) => {
     )
 
     return (
-        <div className='d-flex flex-row flex-wrap'>
+        <div className='d-flex flex-row flex-wrap justify-content-center'>
             {
                 isLoading && <div className='loader'><span><i className="fa-solid fa-paw"></i></span></div>
             }

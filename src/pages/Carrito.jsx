@@ -80,18 +80,47 @@ const Carrito = () => {
 
             await crearFactura(usuarioActual.id, factura)
 
-            Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: 'Tu compra ha sido realizada',
-                text: 'A tu correo llegará el detalle de tu factura',
-                showConfirmButton: false,
-                timer: 3000
+            const { value: formValues } = await Swal.fire({
+                title: 'Agendamiento tentativo del servicio',
+                html:
+                    '<input id="swal-input1" class="swal2-input" type="date">' +
+                    '<input id="swal-input2" class="swal2-input" placeholder="Hora (am o pm)">' + '<p><br>Uno de nuestros asesores se comunicará contigo para confirmar la disponibilidad*</p>',
+                focusConfirm: false,
+                confirmButtonText: 'Agendar',
+                showCancelButton: true,
+                cancelButtonText: 'Cancelar',
+                confirmButtonColor: '#b60478',
+                cancelButtonColor: '#4e36b8',
+
+                preConfirm: () => {
+                    return [
+                        document.getElementById('swal-input1').value,
+                        document.getElementById('swal-input2').value
+                    ]
+                }
             })
 
-            setTimeout(() => {
-                setOrdenes([])
-            }, 3000)
+            if (formValues[0] !== "" && formValues[1] !== "") {
+
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: `Tu servicio ha sido solicitado para ${formValues}`,
+                    text: 'Uno de nuestros asesores se comunicará contigo para confirmar tu dirección y horario del servicio.' + ' Recuerda tener tus datos actualizados',
+                    showConfirmButton: true
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        setOrdenes([])
+                    }
+                })
+            } else {
+                Swal.fire({
+                    text: "Por favor ingresa una fecha y horario aproximado",
+                    icon: 'warning',
+                    confirmButtonColor: '#b60478',
+                    confirmButtonText: 'Intentar de nuevo',
+                })
+            }
         }
 
         else {
@@ -105,7 +134,6 @@ const Carrito = () => {
                     navigate("/perfil")
                 }
             })
-
         }
     }
 
