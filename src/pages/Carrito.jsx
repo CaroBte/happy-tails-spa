@@ -74,13 +74,9 @@ const Carrito = () => {
 
     const handleComprar = async () => {
 
-        const factura = { ordenes, total }
-
         if (usuarioActual) {
 
-            await crearFactura(usuarioActual.id, factura)
-
-            const { value: formValues } = await Swal.fire({
+            const { value: fechaServicio } = await Swal.fire({
                 title: 'Agendamiento tentativo del servicio',
                 html:
                     '<input id="swal-input1" class="swal2-input" type="date">' +
@@ -100,19 +96,23 @@ const Carrito = () => {
                 }
             })
 
-            if (formValues[0] !== "" && formValues[1] !== "") {
+            if (fechaServicio[0] !== "" && fechaServicio[1] !== "") {
 
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
-                    title: `Tu servicio ha sido solicitado para ${formValues}`,
+                    title: `Tu servicio ha sido solicitado para ${fechaServicio}`,
                     text: 'Uno de nuestros asesores se comunicará contigo para confirmar tu dirección y horario del servicio.' + ' Recuerda tener tus datos actualizados',
                     showConfirmButton: true
-                }).then((result) => {
+                }).then(async (result) => {
                     if (result.isConfirmed) {
+
+                        const factura = { ordenes, total, fechaServicio }
+                        await crearFactura(usuarioActual.id, factura)
                         setOrdenes([])
                     }
                 })
+
             } else {
                 Swal.fire({
                     text: "Por favor ingresa una fecha y horario aproximado",
